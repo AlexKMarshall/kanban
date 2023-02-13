@@ -1,4 +1,6 @@
 {
+  "name": "web",
+  "version": "0.0.0",
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -62,9 +64,5 @@
   },
   "engines": {
     "node": ">=14"
-  },
-  "name": "",
-  "version": "",
-  "readme": "ERROR: No README data found!",
-  "_id": "@"
+  }
 }
