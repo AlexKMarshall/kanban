@@ -8,7 +8,7 @@
     "dev": "remix dev",
     "start": "remix-serve build",
     "typecheck": "tsc",
-    "eslint": "eslint .",
+    "lint": "eslint .",
     "prettier": "prettier --ignore-path .eslintignore .",
     "prettier:write": "pnpm run prettier --write .",
     "prettier:check": "pnpm run prettier --check .",
