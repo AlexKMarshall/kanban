@@ -46,7 +46,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Get installed Playwright version
+      - name: Get Playwright version
         id: playwright-version
         run: |
           echo "::set-output name=PLAYWRIGHT_VERSION::$(pnpx playwright --version)"
