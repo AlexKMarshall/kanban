@@ -1,9 +1,9 @@
-import { useLoaderData } from "@remix-run/react"
+import { useLoaderData } from '@remix-run/react'
 
 export const loader = async () => {
   return [
-    { name: "Project 1", id: 1 },
-    { name: "Project new", id: 2 },
+    { name: 'Project 1', id: 1 },
+    { name: 'Project new', id: 2 },
   ]
 }
 

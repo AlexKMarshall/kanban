@@ -1,6 +1,6 @@
-import IndexRoute from "~/routes"
-import { unstable_createRemixStub } from "@remix-run/testing"
-import BoardsRoute, { loader as boardsLoader } from "~/routes/boards"
+import { unstable_createRemixStub } from '@remix-run/testing'
+import IndexRoute from '~/routes'
+import BoardsRoute, { loader as boardsLoader } from '~/routes/boards'
 
 type TestAppProps = {
   url: string
@@ -9,11 +9,11 @@ type TestAppProps = {
 export const TestApp = ({ url }: TestAppProps) => {
   const RemixStub = unstable_createRemixStub([
     {
-      path: "/",
+      path: '/',
       element: <IndexRoute />,
     },
     {
-      path: "/boards",
+      path: '/boards',
       element: <BoardsRoute />,
       loader: boardsLoader,
     },

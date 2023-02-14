@@ -1,8 +1,19 @@
-/** @type {import('eslint').Linter.Config} */
+require('@kanban/eslint-config-bases/patch/modern-module-resolution')
+
 module.exports = {
+  root: true,
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+    project: ['tsconfig.json'],
+  },
+  ignorePatterns: ['**/node_modules', 'build', 'public/build'],
   extends: [
-    "@remix-run/eslint-config",
-    "@remix-run/eslint-config/node",
-    "plugin:storybook/recommended",
+    '@kanban/eslint-config-bases/typescript',
+    '@kanban/eslint-config-bases/react',
+    '@kanban/eslint-config-bases/regex',
+    '@kanban/eslint-config-bases/rtl',
+    '@kanban/eslint-config-bases/sonar',
+    '@kanban/eslint-config-bases/storybook',
+    '@kanban/eslint-config-bases/prettier',
   ],
 }

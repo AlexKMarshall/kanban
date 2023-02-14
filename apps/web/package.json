@@ -29,6 +29,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@kanban/eslint-config-bases": "workspace:*",
     "@remix-run/dev": "^1.12.0",
     "@remix-run/eslint-config": "^1.12.0",
     "@remix-run/testing": "^1.12.0",
@@ -46,8 +47,6 @@
     "@vitejs/plugin-react": "^3.1.0",
     "chromatic": "^6.17.0",
     "concurrently": "^7.6.0",
-    "eslint": "^8.27.0",
-    "eslint-plugin-storybook": "^0.6.10",
     "http-server": "^14.1.1",
     "jest": "^29.4.2",
     "jest-playwright-istanbul": "^0.5.16",

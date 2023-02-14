@@ -11,12 +11,13 @@
     "dev": "turbo run dev",
     "typecheck": "turbo run typecheck",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md}\" --ignore-path .gitignore",
     "ci": "turbo run build prettier:check lint typecheck storybook:coverage"
   },
   "devDependencies": {
+    "@kanban/eslint-config-bases": "workspace:*",
     "chromatic": "^6.17.0",
-    "eslint": "^8.27.0",
+    "eslint": "^8.34.0",
     "eslint-config-turbo": "^0.0.7",
     "prettier": "latest",
     "turbo": "latest"
