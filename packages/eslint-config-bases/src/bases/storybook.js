@@ -4,7 +4,7 @@
  */
 
 const storybookPatterns = {
-  files: ["**/*.stories.{ts,tsx,mdx}"],
+  files: ['**/*.stories.{ts,tsx,mdx}'],
 }
 
 module.exports = {
@@ -17,7 +17,7 @@ module.exports = {
     {
       // For performance run storybook/recommended on test files, not regular code
       files: storybookPatterns.files,
-      extends: ["plugin:storybook/recommended"],
+      extends: ['plugin:storybook/recommended'],
     },
   ],
 }

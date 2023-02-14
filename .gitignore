@@ -13,6 +13,14 @@ coverage
 out/
 build
 
+# remix
+.remix/
+build
+public/build
+
+# storybook
+storybook-static
+
 # misc
 .DS_Store
 *.pem

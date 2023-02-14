@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { getJestConfig } from '@storybook/test-runner'
 
 const { reporters, watchPlugins, ...config } = getJestConfig()

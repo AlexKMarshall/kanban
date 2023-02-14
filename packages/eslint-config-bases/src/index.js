@@ -1,3 +1,3 @@
-const { typescript } = require("./bases")
+const { typescript } = require('./bases')
 
 module.exports = typescript
