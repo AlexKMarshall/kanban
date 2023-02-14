@@ -21,7 +21,8 @@
     },
     "storybook:coverage": {
       "dependsOn": ["storybook:build"],
-      "outputs": ["coverage/**"]
+      "outputs": ["coverage/**"],
+      "env": ["STORYBOOK_CONFIG_DIR", "TARGET_URL", "TEST_BROWSERS"]
     }
   }
 }

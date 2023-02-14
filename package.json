@@ -15,12 +15,13 @@
     "ci": "turbo run build lint typecheck storybook:coverage"
   },
   "devDependencies": {
+    "eslint": "^8.27.0",
+    "eslint-config-turbo": "^0.0.7",
     "prettier": "latest",
     "turbo": "latest"
   },
   "engines": {
     "node": ">=14.0.0"
   },
-  "dependencies": {},
   "packageManager": "pnpm@7.27.0"
 }

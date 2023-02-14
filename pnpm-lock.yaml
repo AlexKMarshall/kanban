@@ -4,9 +4,13 @@ importers:
 
   .:
     specifiers:
+      eslint: ^8.27.0
+      eslint-config-turbo: ^0.0.7
       prettier: latest
       turbo: latest
     devDependencies:
+      eslint: 8.34.0
+      eslint-config-turbo: 0.0.7_eslint@8.34.0
       prettier: 2.8.4
       turbo: 1.7.4
 
@@ -7700,6 +7704,15 @@ packages:
       source-map: 0.6.1
     dev: true
 
+  /eslint-config-turbo/0.0.7_eslint@8.34.0:
+    resolution: {integrity: sha512-WbrGlyfs94rOXrhombi1wjIAYGdV2iosgJRndOZtmDQeq5GLTzYmBUCJQZWtLBEBUPCj96RxZ2OL7Cn+xv/Azg==}
+    peerDependencies:
+      eslint: '>6.6.0'
+    dependencies:
+      eslint: 8.34.0
+      eslint-plugin-turbo: 0.0.7_eslint@8.34.0
+    dev: true
+
   /eslint-import-resolver-node/0.3.6:
     resolution: {integrity: sha512-0En0w03NRVMn9Uiyn8YRPDKvWjxCWkslUEhGNTdGx15RvPJYQ+lbOlqrlNI2vEAs4pDYK4f/HN2TbDmk5TP0iw==}
     dependencies:
@@ -7946,6 +7959,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
       - typescript
+    dev: true
+
+  /eslint-plugin-turbo/0.0.7_eslint@8.34.0:
+    resolution: {integrity: sha512-iajOH8eD4jha3duztGVBD1BEmvNrQBaA/y3HFHf91vMDRYRwH7BpHSDFtxydDpk5ghlhRxG299SFxz7D6z4MBQ==}
+    peerDependencies:
+      eslint: '>6.6.0'
+    dependencies:
+      eslint: 8.34.0
     dev: true
 
   /eslint-scope/4.0.3:
