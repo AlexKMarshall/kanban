@@ -8,8 +8,24 @@
     },
     "typecheck": {},
     "lint": {},
+    "prettier:check": {},
     "dev": {
-      "cache": false
+      "cache": false,
+      "persistent": true
+    },
+    "storybook:build": {
+      "outputs": ["storybook-static/**"],
+      "env": ["STORYBOOK_CONFIG_DIR"]
+    },
+    "storybook:serve": {
+      "dependsOn": ["storybook:build"],
+      "persistent": true,
+      "env": ["VITE_COVERAGE"]
+    },
+    "storybook:coverage": {
+      "dependsOn": ["storybook:build"],
+      "outputs": ["coverage/**"],
+      "env": ["STORYBOOK_CONFIG_DIR", "TARGET_URL", "TEST_BROWSERS"]
     }
   }
 }
