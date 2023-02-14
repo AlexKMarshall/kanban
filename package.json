@@ -11,7 +11,8 @@
     "dev": "turbo run dev",
     "typecheck": "turbo run typecheck",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "ci": "turbo run build lint typecheck"
   },
   "devDependencies": {
     "eslint-config-custom": "workspace:*",
