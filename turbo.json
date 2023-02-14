@@ -9,7 +9,19 @@
     "typecheck": {},
     "lint": {},
     "dev": {
-      "cache": false
+      "cache": false,
+      "persistent": true
+    },
+    "storybook:build": {
+      "outputs": ["storybook-static/**"]
+    },
+    "storybook:serve": {
+      "dependsOn": ["storybook:build"],
+      "persistent": true
+    },
+    "storybook:coverage": {
+      "dependsOn": ["storybook:build"],
+      "outputs": ["coverage/**"]
     }
   }
 }

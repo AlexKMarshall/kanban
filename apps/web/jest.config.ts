@@ -1,7 +1,7 @@
 import { getJestConfig } from "@storybook/test-runner"
 
 process.env.STORYBOOK_CONFIG_DIR ??= ".storybook"
-process.env.TARGET_URL ??= "http://localhost:6006"
+process.env.TARGET_URL ??= "http://localhost:6007"
 process.env.TEST_BROWSERS ??= "chromium"
 
 export default {
