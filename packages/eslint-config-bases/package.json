@@ -10,8 +10,14 @@
     "./patch/modern-module-resolution": {
       "require": "./src/patch/modern-module-resolution.js"
     },
+    "./prettier": {
+      "require": "./src/bases/prettier.js"
+    },
     "./react": {
       "require": "./src/bases/react.js"
+    },
+    "./storybook": {
+      "require": "./src/bases/storybook.js"
     },
     "./typescript": {
       "require": "./src/bases/typescript.js"
@@ -39,10 +45,14 @@
     "@rushstack/eslint-patch": "^1.2.0",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0"
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-storybook": "^0.6.10",
+    "prettier": "^2.8.4"
   }
 }

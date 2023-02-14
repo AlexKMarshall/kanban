@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { TestApp } from "~/test/TestApp"
+import { TestApp } from '~/test/TestApp'
 
 const meta: Meta<typeof TestApp> = {
-  title: "Routes/index",
-  component: TestApp,
-  args: {
-    url: "/",
-  },
+	title: 'Routes/index',
+	component: TestApp,
+	args: {
+		url: '/',
+	},
 }
 
 export default meta
