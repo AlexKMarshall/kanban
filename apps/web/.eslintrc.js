@@ -7,5 +7,8 @@ module.exports = {
     project: ["tsconfig.json"],
   },
   ignorePatterns: ["**/node_modules", "build", "public/build"],
-  extends: ["@kanban/eslint-config-bases/typescript"],
+  extends: [
+    "@kanban/eslint-config-bases/typescript",
+    "@kanban/eslint-config-bases/react",
+  ],
 }
