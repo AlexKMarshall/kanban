@@ -15,7 +15,6 @@
     "ci": "turbo run build lint typecheck storybook:coverage"
   },
   "devDependencies": {
-    "eslint-config-custom": "workspace:*",
     "prettier": "latest",
     "turbo": "latest"
   },
