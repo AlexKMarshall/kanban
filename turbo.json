@@ -13,11 +13,13 @@
       "persistent": true
     },
     "storybook:build": {
-      "outputs": ["storybook-static/**"]
+      "outputs": ["storybook-static/**"],
+      "env": ["STORYBOOK_CONFIG_DIR"]
     },
     "storybook:serve": {
       "dependsOn": ["storybook:build"],
-      "persistent": true
+      "persistent": true,
+      "env": ["VITE_COVERAGE"]
     },
     "storybook:coverage": {
       "dependsOn": ["storybook:build"],
