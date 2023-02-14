@@ -4,11 +4,13 @@ importers:
 
   .:
     specifiers:
+      chromatic: ^6.17.0
       eslint: ^8.27.0
       eslint-config-turbo: ^0.0.7
       prettier: latest
       turbo: latest
     devDependencies:
+      chromatic: 6.17.0
       eslint: 8.34.0
       eslint-config-turbo: 0.0.7_eslint@8.34.0
       prettier: 2.8.4
