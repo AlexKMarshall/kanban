@@ -1,5 +1,5 @@
-import type { Config } from "jest"
 import { getJestConfig } from "@storybook/test-runner"
+import type { Config } from "jest"
 
 const { reporters, watchPlugins, ...config } = getJestConfig()
 

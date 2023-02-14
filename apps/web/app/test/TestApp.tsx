@@ -1,5 +1,5 @@
-import IndexRoute from "~/routes"
 import { unstable_createRemixStub } from "@remix-run/testing"
+import IndexRoute from "~/routes"
 import BoardsRoute, { loader as boardsLoader } from "~/routes/boards"
 
 type TestAppProps = {
