@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "lib": ["es2019", "dom"],
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "incremental": true,
+    "allowJs": true,
+    "checkJs": true
+  },
+  "exclude": ["**/node_modules", "**/.*/", "dist", "build"]
+}
