@@ -2,5 +2,12 @@
   "name": "@kanban/clock",
   "version": "0.0.0",
   "main": "index.ts",
-  "types": "index.ts"
+  "types": "index.ts",
+  "scripts": {
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@kanban/tsconfig": "workspace:*",
+    "typescript": "^4.9.5"
+  }
 }
