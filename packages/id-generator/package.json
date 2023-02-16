@@ -1,0 +1,17 @@
+{
+  "name": "@kanban/id-generator",
+  "version": "0.0.0",
+  "main": "index.ts",
+  "types": "index.ts",
+  "scripts": {
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@kanban/tsconfig": "workspace:*",
+    "@types/uuid": "^9.0.0",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "uuid": "^9.0.0"
+  }
+}

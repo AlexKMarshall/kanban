@@ -156,6 +156,19 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       typescript: 4.9.5
 
+  packages/id-generator:
+    specifiers:
+      '@kanban/tsconfig': workspace:*
+      '@types/uuid': ^9.0.0
+      typescript: ^4.9.5
+      uuid: ^9.0.0
+    dependencies:
+      uuid: 9.0.0
+    devDependencies:
+      '@kanban/tsconfig': link:../tsconfig
+      '@types/uuid': 9.0.0
+      typescript: 4.9.5
+
   packages/tsconfig:
     specifiers: {}
 
@@ -4955,6 +4968,10 @@ packages:
 
   /@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
+    dev: true
+
+  /@types/uuid/9.0.0:
+    resolution: {integrity: sha512-kr90f+ERiQtKWMz5rP32ltJ/BtULDI5RVO0uavn1HQUOwjx0R1h0rnDYNL0CepF1zL5bSY6FISAfd9tOdDhU5Q==}
     dev: true
 
   /@types/wait-on/5.3.1:
@@ -16004,6 +16021,11 @@ packages:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
     dev: true
+
+  /uuid/9.0.0:
+    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
+    hasBin: true
+    dev: false
 
   /uvu/0.5.6:
     resolution: {integrity: sha512-+g8ENReyr8YsOc6fv/NVJs2vFdHBnBNdfE49rshrTzDWOlUx4Gq7KOS2GD8eqhy2j+Ejq29+SbKH8yjkAqXqoA==}
