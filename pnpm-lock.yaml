@@ -107,9 +107,14 @@ importers:
 
   packages/database:
     specifiers:
+      '@kanban/clock': workspace:*
+      '@kanban/id-generator': workspace:*
       '@kanban/tsconfig': workspace:*
       prisma: ^4.10.1
       typescript: ^4.9.5
+    dependencies:
+      '@kanban/clock': link:../clock
+      '@kanban/id-generator': link:../id-generator
     devDependencies:
       '@kanban/tsconfig': link:../tsconfig
       prisma: 4.10.1

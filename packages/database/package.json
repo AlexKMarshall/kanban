@@ -7,6 +7,10 @@
     "db:studio": "prisma studio",
     "db:push": "prisma db push --skip-generate"
   },
+  "dependencies": {
+    "@kanban/clock": "workspace:*",
+    "@kanban/id-generator": "workspace:*"
+  },
   "devDependencies": {
     "@kanban/tsconfig": "workspace:*",
     "prisma": "^4.10.1",
