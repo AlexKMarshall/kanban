@@ -36,6 +36,7 @@
     "lint": "eslint  --ext .ts,.js,.cjs,.mjs --cache --cache-location ../../.cache/eslint/eslint-config-bases.eslintcache"
   },
   "devDependencies": {
+    "@kanban/tsconfig": "workspace:*",
     "@types/node": "^18.13.0",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
