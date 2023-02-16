@@ -18,7 +18,7 @@
     "storybook:serve:coverage": "NODE_ENV=test VITE_COVERAGE=true pnpm run storybook:serve",
     "chromatic": "pnpm dlx chromatic --exit-once-uploaded",
     "test:coverage": "TARGET_URL=http://127.0.0.1:6007 jest --coverage",
-    "storybook:coverage": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"pnpm storybook:serve:coverage\" \"wait-on http://127.0.0.1:6007 && pnpm test:coverage\""
+    "storybook:coverage": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"pnpm storybook:serve:coverage --silent\" \"wait-on http://127.0.0.1:6007 && pnpm test:coverage\""
   },
   "dependencies": {
     "@remix-run/node": "^1.12.0",

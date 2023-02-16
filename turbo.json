@@ -26,6 +26,12 @@
       "dependsOn": ["storybook:build"],
       "outputs": ["coverage/**"],
       "env": ["STORYBOOK_CONFIG_DIR", "TARGET_URL", "TEST_BROWSERS"]
+    },
+    "db:generate": {
+      "cache": false
+    },
+    "db:push": {
+      "cache": false
     }
   }
 }
