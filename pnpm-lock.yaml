@@ -105,6 +105,16 @@ importers:
       '@kanban/tsconfig': link:../tsconfig
       typescript: 4.9.5
 
+  packages/database:
+    specifiers:
+      '@kanban/tsconfig': workspace:*
+      prisma: ^4.10.1
+      typescript: ^4.9.5
+    devDependencies:
+      '@kanban/tsconfig': link:../tsconfig
+      prisma: 4.10.1
+      typescript: 4.9.5
+
   packages/eslint-config-bases:
     specifiers:
       '@kanban/tsconfig': workspace:*
@@ -2792,6 +2802,11 @@ packages:
       tiny-glob: 0.2.9
       tslib: 2.5.0
 
+  /@prisma/engines/4.10.1:
+    resolution: {integrity: sha512-B3tcTxjx196nuAu1GOTKO9cGPUgTFHYRdkPkTS4m5ptb2cejyBlH9X7GOfSt3xlI7p4zAJDshJP4JJivCg9ouA==}
+    requiresBuild: true
+    dev: true
+
   /@remix-run/dev/1.12.0_@remix-run+serve@1.12.0:
     resolution: {integrity: sha512-lBiA2FlDi+DjpOAE/vn93zFTSxudKag/FGpmbV6O+LQItDCpFARfbBMhTck/uKcc95nyhRd1GGhQ4ZDgQnyjaQ==}
     engines: {node: '>=14'}
@@ -3317,7 +3332,7 @@ packages:
     dependencies:
       '@storybook/client-logger': 7.0.0-beta.47
       '@storybook/core-events': 7.0.0-beta.47
-      '@storybook/csf': 0.0.2-next.8
+      '@storybook/csf': 0.0.2-next.9
       '@storybook/global': 5.0.0
       '@storybook/manager-api': 7.0.0-beta.47_biqbaboplfbrettd7655fr4n2y
       '@storybook/preview-api': 7.0.0-beta.47
@@ -3486,7 +3501,7 @@ packages:
       '@storybook/client-logger': 7.0.0-beta.47
       '@storybook/components': 7.0.0-beta.47_biqbaboplfbrettd7655fr4n2y
       '@storybook/core-events': 7.0.0-beta.47
-      '@storybook/csf': 0.0.2-next.8
+      '@storybook/csf': 0.0.2-next.9
       '@storybook/docs-tools': 7.0.0-beta.47
       '@storybook/global': 5.0.0
       '@storybook/manager-api': 7.0.0-beta.47_biqbaboplfbrettd7655fr4n2y
@@ -3712,7 +3727,7 @@ packages:
       '@babel/core': 7.20.12
       '@babel/preset-env': 7.20.2_@babel+core@7.20.12
       '@babel/types': 7.20.7
-      '@storybook/csf': 0.0.2-next.8
+      '@storybook/csf': 0.0.2-next.9
       '@storybook/csf-tools': 7.0.0-beta.47
       '@storybook/node-logger': 7.0.0-beta.47
       '@storybook/types': 7.0.0-beta.47
@@ -3734,7 +3749,7 @@ packages:
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       '@storybook/client-logger': 7.0.0-beta.47
-      '@storybook/csf': 0.0.2-next.8
+      '@storybook/csf': 0.0.2-next.9
       '@storybook/global': 5.0.0
       '@storybook/theming': 7.0.0-beta.47_biqbaboplfbrettd7655fr4n2y
       '@storybook/types': 7.0.0-beta.47
@@ -3924,7 +3939,7 @@ packages:
       '@storybook/builder-manager': 7.0.0-beta.47
       '@storybook/core-common': 7.0.0-beta.47
       '@storybook/core-events': 7.0.0-beta.47
-      '@storybook/csf': 0.0.2-next.8
+      '@storybook/csf': 0.0.2-next.9
       '@storybook/csf-tools': 7.0.0-beta.47
       '@storybook/docs-mdx': 0.0.1-next.6
       '@storybook/global': 5.0.0
@@ -4017,7 +4032,7 @@ packages:
     resolution: {integrity: sha512-H7zXfL1wf/1jWi5MaFISt/taxE41fgpV/uLfi5CHcHLX9ZgeQs2B/2utpUgwvBsxiL+E/jKAt5cLeuZCIvglMg==}
     dependencies:
       '@babel/types': 7.20.7
-      '@storybook/csf': 0.0.2-next.8
+      '@storybook/csf': 0.0.2-next.9
       '@storybook/types': 7.0.0-beta.46
       fs-extra: 11.1.0
       recast: 0.23.1
@@ -4030,7 +4045,7 @@ packages:
     resolution: {integrity: sha512-NBi0psLToS0mR8ZjHugMcfQt11xIwz7w0Rot4VACTlv8Q8cQBv/FAznCVpfpFedqusSTksBCEmRfRbIcKI3+VQ==}
     dependencies:
       '@babel/types': 7.20.7
-      '@storybook/csf': 0.0.2-next.8
+      '@storybook/csf': 0.0.2-next.9
       '@storybook/types': 7.0.0-beta.47
       fs-extra: 11.1.0
       recast: 0.23.1
@@ -4051,11 +4066,9 @@ packages:
       lodash: 4.17.21
     dev: true
 
-  /@storybook/csf/0.0.2-next.8:
-    resolution: {integrity: sha512-3T6rflW7D9q1iXOR+bidwoNbd9rVUTyjYH/sqsnYjbXhb/aOXsQzGKwNeq9QqZIFVpKfg5BoOF5i7DCMtoGknQ==}
+  /@storybook/csf/0.0.2-next.9:
+    resolution: {integrity: sha512-ECOLMK425s+z8oA0aVAhBhhquuwTsZrM4oha/5De44JG8uYGXhqVrv/l27oxZEkwytuiQu+9f65HxYli+DY+3w==}
     dependencies:
-      expect-type: 0.14.2
-      lodash: 4.17.21
       type-fest: 2.19.0
     dev: true
 
@@ -4128,7 +4141,7 @@ packages:
       '@storybook/channels': 7.0.0-beta.47
       '@storybook/client-logger': 7.0.0-beta.47
       '@storybook/core-events': 7.0.0-beta.47
-      '@storybook/csf': 0.0.2-next.8
+      '@storybook/csf': 0.0.2-next.9
       '@storybook/global': 5.0.0
       '@storybook/router': 7.0.0-beta.47_biqbaboplfbrettd7655fr4n2y
       '@storybook/theming': 7.0.0-beta.47_biqbaboplfbrettd7655fr4n2y
@@ -4212,7 +4225,7 @@ packages:
       '@storybook/channels': 7.0.0-beta.46
       '@storybook/client-logger': 7.0.0-beta.46
       '@storybook/core-events': 7.0.0-beta.46
-      '@storybook/csf': 0.0.2-next.8
+      '@storybook/csf': 0.0.2-next.9
       '@storybook/global': 5.0.0
       '@storybook/types': 7.0.0-beta.46
       '@types/qs': 6.9.7
@@ -4235,7 +4248,7 @@ packages:
       '@storybook/channels': 7.0.0-beta.47
       '@storybook/client-logger': 7.0.0-beta.47
       '@storybook/core-events': 7.0.0-beta.47
-      '@storybook/csf': 0.0.2-next.8
+      '@storybook/csf': 0.0.2-next.9
       '@storybook/global': 5.0.0
       '@storybook/types': 7.0.0-beta.47
       '@types/qs': 6.9.7
@@ -4258,7 +4271,7 @@ packages:
       '@storybook/channels': 7.0.0-beta.48
       '@storybook/client-logger': 7.0.0-beta.48
       '@storybook/core-events': 7.0.0-beta.48
-      '@storybook/csf': 0.0.2-next.8
+      '@storybook/csf': 0.0.2-next.9
       '@storybook/global': 5.0.0
       '@storybook/types': 7.0.0-beta.48
       '@types/qs': 6.9.7
@@ -8532,10 +8545,6 @@ packages:
 
   /expect-playwright/0.8.0:
     resolution: {integrity: sha512-+kn8561vHAY+dt+0gMqqj1oY+g5xWrsuGMk4QGxotT2WS545nVqqjs37z6hrYfIuucwqthzwJfCJUEYqixyljg==}
-    dev: true
-
-  /expect-type/0.14.2:
-    resolution: {integrity: sha512-ed3+tr5ujbIYXZ8Pl/VgIphwJQ0q5tBLGGdn7Zvwt1WyPBRX83xjT5pT77P/GkuQbctx0K2ZNSSan7eruJqTCQ==}
     dev: true
 
   /expect/28.1.3:
@@ -13531,6 +13540,15 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       parse-ms: 2.1.0
+    dev: true
+
+  /prisma/4.10.1:
+    resolution: {integrity: sha512-0jDxgg+DruB1kHVNlcspXQB9au62IFfVg9drkhzXudszHNUAQn0lVuu+T8np0uC2z1nKD5S3qPeCyR8u5YFLnA==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@prisma/engines': 4.10.1
     dev: true
 
   /process-nextick-args/2.0.1:
