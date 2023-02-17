@@ -45,7 +45,7 @@
     "@storybook/addon-links": "^7.0.0-beta.46",
     "@storybook/blocks": "^7.0.0-beta.46",
     "@storybook/react": "^7.0.0-beta.46",
-    "@storybook/react-vite": "7.0.0-beta.46",
+    "@storybook/react-vite": "7.0.0-beta.50",
     "@storybook/test-runner": "^0.9.4",
     "@storybook/testing-library": "^0.0.14-next.1",
     "@types/node": "^18.13.0",
