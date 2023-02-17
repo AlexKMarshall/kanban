@@ -1,6 +1,11 @@
+import { type LoaderArgs } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 
-export const loader = async () => {
+export const loader = async ({ context }: LoaderArgs) => {
+  if (context.db) {
+    const boards = await context.db.board.findMany()
+    console.log(boards)
+  }
   return [
     { name: 'Project 1', id: 1 },
     { name: 'Project new', id: 2 },

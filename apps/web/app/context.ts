@@ -1,3 +1,12 @@
+import { type PrismaClient } from '@kanban/database'
+import { createDb } from './utils/db.server'
+
 export interface Context {
-  db?: unknown
+  db?: PrismaClient
+}
+
+export function createLiveContext() {
+  return {
+    db: createDb(),
+  }
 }

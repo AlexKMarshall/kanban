@@ -23,6 +23,7 @@
     "storybook:coverage": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"pnpm storybook:serve:coverage --silent\" \"wait-on http://127.0.0.1:6007 && pnpm test:coverage\""
   },
   "dependencies": {
+    "@kanban/database": "workspace:*",
     "@remix-run/express": "^1.12.0",
     "@remix-run/node": "^1.12.0",
     "@remix-run/react": "^1.12.0",

@@ -3,6 +3,7 @@ const express = require('express')
 const compression = require('compression')
 const morgan = require('morgan')
 const { createRequestHandler } = require('@remix-run/express')
+const { createLiveContext } = require('./app/context')
 
 const BUILD_DIR = path.join(process.cwd(), 'build')
 
@@ -25,7 +26,7 @@ app.use(express.static('public', { maxAge: '1h' }))
 
 app.use(morgan('tiny'))
 
-const context = {}
+const context = createLiveContext()
 
 app.all(
   '*',
@@ -34,6 +35,7 @@ app.all(
         purgeRequireCache()
 
         return createRequestHandler({
+          getLoadContext: () => context,
           build: require(BUILD_DIR),
           mode: process.env.NODE_ENV,
         })(req, res, next)
