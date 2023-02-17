@@ -1,4 +1,4 @@
-name: "Test"
+name: 'Test'
 
 on: push
 
@@ -10,6 +10,7 @@ jobs:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       VITE_COVERAGE: true
+      DATABASE_URL: 'file:./dev.db'
 
     steps:
       - name: Checkout
