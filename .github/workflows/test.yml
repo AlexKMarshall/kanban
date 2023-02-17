@@ -1,4 +1,4 @@
-name: "Test"
+name: 'Test'
 
 on: push
 
@@ -10,6 +10,7 @@ jobs:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       VITE_COVERAGE: true
+      DATABASE_URL: 'file:./dev.db'
 
     steps:
       - name: Checkout
@@ -49,7 +50,7 @@ jobs:
       - name: Get Playwright version
         id: playwright-version
         run: |
-          echo "::set-output name=PLAYWRIGHT_VERSION::$(pnpx playwright --version)"
+          echo "PLAYWRIGHT_VERSION=$(pnpx playwright --version)"
 
       - name: Cache playwright binaries
         uses: actions/cache@v3

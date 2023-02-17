@@ -7,5 +7,9 @@
     "**/*.tsx",
     "vite.config.ts",
     "vite-env.d.ts"
-  ]
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "isolatedModules": true
+  }
 }
