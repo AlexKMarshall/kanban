@@ -12,10 +12,8 @@ declare module '@remix-run/node' {
 declare module '@remix-run/react-router' {
   interface LoaderArgs {
     context: Context
-    junk?: string
   }
   interface ActionArgs {
     context: Context
-    moreJunk?: string
   }
 }

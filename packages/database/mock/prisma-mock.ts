@@ -36,7 +36,7 @@ export const createPrismaMock = <P>({
   data?: PrismaMockData<P>
   clock?: Clock
   idGenerator?: IdGenerator
-} = {}): P => {
+} = {}): PrismaClient => {
   let data = {}
   const client = {} as PrismaClient
 
