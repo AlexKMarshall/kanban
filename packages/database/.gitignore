@@ -4,4 +4,4 @@ node_modules
 
 dmmf.json
 
-*.db
+dev.db
