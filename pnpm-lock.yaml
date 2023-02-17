@@ -20,6 +20,7 @@ importers:
 
   apps/web:
     specifiers:
+      '@kanban/clock': workspace:*
       '@kanban/database': workspace:*
       '@kanban/eslint-config-bases': workspace:*
       '@kanban/tsconfig': workspace:*
@@ -28,6 +29,7 @@ importers:
       '@remix-run/express': ^1.12.0
       '@remix-run/node': ^1.12.0
       '@remix-run/react': ^1.12.0
+      '@remix-run/server-runtime': ^1.13.0
       '@remix-run/testing': ^1.12.0
       '@storybook/addon-essentials': ^7.0.0-beta.46
       '@storybook/addon-interactions': ^7.0.0-beta.46
@@ -73,10 +75,12 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
+      '@kanban/clock': link:../../packages/clock
       '@kanban/eslint-config-bases': link:../../packages/eslint-config-bases
       '@kanban/tsconfig': link:../../packages/tsconfig
       '@remix-run/dev': 1.12.0
       '@remix-run/eslint-config': 1.12.0_enh3v42zdjkuhl37xqvwnb7oqe
+      '@remix-run/server-runtime': 1.13.0
       '@remix-run/testing': 1.12.0
       '@storybook/addon-essentials': 7.0.0-beta.47_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-interactions': 7.0.0-beta.47_biqbaboplfbrettd7655fr4n2y
@@ -2987,7 +2991,6 @@ packages:
   /@remix-run/router/1.3.2:
     resolution: {integrity: sha512-t54ONhl/h75X94SWsHGQ4G/ZrCEguKSRQr7DrjTciJXW0YU1QhlwYeycvK5JgkzlxmvrK7wq1NB/PLtHxoiDcA==}
     engines: {node: '>=14'}
-    dev: false
 
   /@remix-run/server-runtime/1.12.0:
     resolution: {integrity: sha512-7I0165Ns/ffPfCEfuiqD58lMderTn2s/sew1xJ34ONa21mG/7+5T7diHIgxKST8rS3816JPmlwSqUaHgwbmO6Q==}
@@ -3012,7 +3015,6 @@ packages:
       cookie: 0.4.2
       set-cookie-parser: 2.5.1
       source-map: 0.7.4
-    dev: false
 
   /@remix-run/testing/1.12.0:
     resolution: {integrity: sha512-P9Bm7n7XR7GMs3eM1fQBtzlptQXTZM69CiFcDbAC5Cz+EO7imaM5+x2xiy7xzdUgTNJHgXOrPI3EKLpEI3nuBQ==}

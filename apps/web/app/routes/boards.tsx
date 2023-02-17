@@ -5,6 +5,9 @@ export const loader = async ({ context }: LoaderArgs) => {
   if (context.db) {
     const boards = await context.db.board.findMany()
     console.log(boards)
+  } else {
+    console.log('no db')
+    console.log({ context })
   }
   return [
     { name: 'Project 1', id: 1 },

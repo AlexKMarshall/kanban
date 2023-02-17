@@ -33,10 +33,12 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@kanban/clock": "workspace:*",
     "@kanban/eslint-config-bases": "workspace:*",
     "@kanban/tsconfig": "workspace:*",
     "@remix-run/dev": "^1.12.0",
     "@remix-run/eslint-config": "^1.12.0",
+    "@remix-run/server-runtime": "^1.13.0",
     "@remix-run/testing": "^1.12.0",
     "@storybook/addon-essentials": "^7.0.0-beta.46",
     "@storybook/addon-interactions": "^7.0.0-beta.46",

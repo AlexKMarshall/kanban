@@ -7,6 +7,7 @@ const meta: Meta<typeof TestApp> = {
   component: TestApp,
   args: {
     url: '/boards',
+    context: { db: undefined },
   },
 }
 
