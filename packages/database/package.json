@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@kanban/clock": "workspace:*",
-    "@kanban/id-generator": "workspace:*"
+    "@kanban/id-generator": "workspace:*",
+    "@prisma/client": "^4.10.1"
   },
   "devDependencies": {
     "@kanban/tsconfig": "workspace:*",
