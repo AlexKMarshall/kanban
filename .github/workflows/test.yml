@@ -50,7 +50,7 @@ jobs:
       - name: Get Playwright version
         id: playwright-version
         run: |
-          echo "::set-output name=PLAYWRIGHT_VERSION::$(pnpx playwright --version)"
+          echo "PLAYWRIGHT_VERSION=$(pnpx playwright --version)"
 
       - name: Cache playwright binaries
         uses: actions/cache@v3
