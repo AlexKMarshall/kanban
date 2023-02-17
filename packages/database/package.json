@@ -5,7 +5,8 @@
   "scripts": {
     "db:generate": "prisma generate",
     "db:studio": "prisma studio",
-    "db:push": "prisma db push --skip-generate"
+    "db:push": "prisma db push --skip-generate",
+    "dmmf:generate": "node --require esbuild-register prisma/dmmf.ts"
   },
   "dependencies": {
     "@kanban/clock": "workspace:*",
@@ -13,6 +14,7 @@
   },
   "devDependencies": {
     "@kanban/tsconfig": "workspace:*",
+    "esbuild-register": "^3.4.2",
     "prisma": "^4.10.1",
     "typescript": "^4.9.5"
   }

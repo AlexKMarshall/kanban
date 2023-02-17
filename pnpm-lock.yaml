@@ -126,6 +126,7 @@ importers:
       '@kanban/clock': workspace:*
       '@kanban/id-generator': workspace:*
       '@kanban/tsconfig': workspace:*
+      esbuild-register: ^3.4.2
       prisma: ^4.10.1
       typescript: ^4.9.5
     dependencies:
@@ -133,6 +134,7 @@ importers:
       '@kanban/id-generator': link:../id-generator
     devDependencies:
       '@kanban/tsconfig': link:../tsconfig
+      esbuild-register: 3.4.2_esbuild@0.16.17
       prisma: 4.10.1
       typescript: 4.9.5
 

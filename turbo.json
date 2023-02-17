@@ -10,7 +10,7 @@
     "lint": {},
     "prettier:check": {},
     "dev": {
-      "dependsOn": ["^db:generate", "^db:push", "^build"],
+      "dependsOn": ["^db:generate", "^db:push", "^dmmf:generate", "^build"],
       "cache": false,
       "persistent": true
     },
@@ -20,6 +20,7 @@
       "persistent": true
     },
     "storybook:build": {
+      "dependsOn": ["^dmmf:generate"],
       "outputs": ["storybook-static/**"],
       "env": ["STORYBOOK_CONFIG_DIR"]
     },
@@ -37,6 +38,10 @@
       "cache": false
     },
     "db:push": {
+      "cache": false
+    },
+    "dmmf:generate": {
+      "dependsOn": ["^db:generate", "^db:push"],
       "cache": false
     }
   }

@@ -1,4 +1,5 @@
 import { sleep } from '@kanban/clock'
+import { createPrismaMock } from '@kanban/database/mock'
 import {
   type ActionArgs,
   type ActionFunction,
@@ -10,7 +11,7 @@ import type { ServerRouteModule } from '@remix-run/server-runtime/dist/routeModu
 import { unstable_createRemixStub } from '@remix-run/testing'
 import * as IndexModule from '../routes'
 import * as BoardsModule from '../routes/boards'
-import { type TestContext } from './test-context'
+import { createTestContext, type TestContext } from './test-context'
 
 type DataFunction = LoaderFunction | ActionFunction
 type DataArgs = LoaderArgs | ActionArgs
@@ -19,6 +20,18 @@ type Middleware = (
 ) => (args: DataArgs) => ReturnType<DataFunction>
 
 type Route = Parameters<typeof unstable_createRemixStub>[0][number]
+
+type TestAppStoryProps = {
+  url: string
+}
+
+export function TestAppStory({ url }: TestAppStoryProps) {
+  const context = createTestContext({
+    db: createPrismaMock(),
+  })
+
+  return <TestApp url={url} context={context} />
+}
 
 function routeFromModule({
   module,
