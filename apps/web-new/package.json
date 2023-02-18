@@ -8,7 +8,8 @@
     "dev:node": "cross-env NODE_ENV=development nodemon --require dotenv/config ./server.js --watch ./server.js",
     "dev:remix": "remix watch",
     "start": "cross-env NODE_ENV=production node ./server.js",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@remix-run/express": "^1.13.0",
@@ -23,6 +24,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@kanban/eslint-config-bases": "workspace:*",
     "@remix-run/dev": "^1.13.0",
     "@remix-run/eslint-config": "^1.13.0",
     "@types/react": "^18.0.25",

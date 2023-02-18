@@ -115,6 +115,7 @@ importers:
 
   apps/web-new:
     specifiers:
+      '@kanban/eslint-config-bases': workspace:*
       '@remix-run/dev': ^1.13.0
       '@remix-run/eslint-config': ^1.13.0
       '@remix-run/express': ^1.13.0
@@ -146,6 +147,7 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
+      '@kanban/eslint-config-bases': link:../../packages/eslint-config-bases
       '@remix-run/dev': 1.13.0
       '@remix-run/eslint-config': 1.13.0_km5ddj7uwb23cqeymeyvzjsfb4
       '@types/react': 18.0.28
