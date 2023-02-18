@@ -1,0 +1,22 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["dmmf:generate"]
+    },
+    "dmmf:generate": {
+      "dependsOn": ["db:generate", "db:push"],
+      "outputs": ["./prisma/dmmf.json"]
+    },
+    "db:generate": {
+      "cache": false
+    },
+    "db:push": {
+      "cache": false
+    },
+    "typecheck": {
+      "dependsOn": ["dmmf:generate"]
+    }
+  }
+}

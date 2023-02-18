@@ -3,26 +3,26 @@
   "globalDependencies": ["**/.env.*local"],
   "pipeline": {
     "build": {
-      "dependsOn": ["^build", "dmmf:generate"],
+      "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**", "build/**", "public/build/**"]
     },
     "typecheck": {
-      "dependsOn": ["^db:generate", "^db:push"]
+      "dependsOn": ["^typecheck"]
     },
     "lint": {},
     "prettier:check": {},
     "dev": {
-      "dependsOn": ["^db:generate", "^db:push", "^dmmf:generate", "^build"],
+      "dependsOn": ["build"],
       "cache": false,
       "persistent": true
     },
     "start": {
-      "dependsOn": ["^db:generate", "^db:push", "^build"],
+      "dependsOn": ["build"],
       "cache": false,
       "persistent": true
     },
     "storybook:build": {
-      "dependsOn": ["^dmmf:generate"],
+      "dependsOn": ["build"],
       "outputs": ["storybook-static/**"],
       "env": ["STORYBOOK_CONFIG_DIR"]
     },
@@ -35,16 +35,6 @@
       "dependsOn": ["storybook:build"],
       "outputs": ["coverage/**"],
       "env": ["STORYBOOK_CONFIG_DIR", "TARGET_URL", "TEST_BROWSERS"]
-    },
-    "db:generate": {
-      "cache": false
-    },
-    "db:push": {
-      "cache": false
-    },
-    "dmmf:generate": {
-      "dependsOn": ["db:generate", "db:push"],
-      "cache": false
     }
   }
 }
