@@ -80,5 +80,5 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           onlyChanged: true
-          workingDir: apps/web
+          workingDir: apps/web-new
           storybookBuildDir: storybook-static
