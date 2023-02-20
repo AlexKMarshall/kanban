@@ -1,5 +1,6 @@
 import { unstable_createRemixStub } from '@remix-run/testing'
 import type { ServerRouteModule } from '@remix-run/server-runtime/dist/routeModules'
+
 import * as IndexModule from '../routes'
 import * as BoardsModule from '../routes/boards'
 
@@ -32,6 +33,8 @@ function routeFromModule({
   const Component = module.default
 
   return {
+    // @ts-expect-error React Router types have context as optional, but we're making them required
+    loader: module.loader ? module.loader : undefined,
     element: Component ? <Component /> : undefined,
   }
 }
