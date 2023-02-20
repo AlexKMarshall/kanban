@@ -133,10 +133,12 @@ importers:
       '@storybook/addon-links': ^7.0.0-beta.50
       '@storybook/blocks': ^7.0.0-beta.50
       '@storybook/react': ^7.0.0-beta.50
+      '@storybook/react-vite': 7.0.0-beta.50
       '@storybook/react-webpack5': ^7.0.0-beta.50
       '@storybook/testing-library': ^0.0.14-next.1
       '@types/react': ^18.0.25
       '@types/react-dom': ^18.0.8
+      '@vitejs/plugin-react': ^3.1.0
       compression: ^1.7.4
       cross-env: ^7.0.3
       dotenv: ^16.0.3
@@ -151,6 +153,7 @@ importers:
       react-dom: ^18.2.0
       storybook: ^7.0.0-beta.50
       typescript: ^4.8.4
+      vite: ^4.1.1
     dependencies:
       '@remix-run/express': 1.13.0_express@4.18.2
       '@remix-run/node': 1.13.0
@@ -178,10 +181,12 @@ importers:
       '@storybook/addon-links': 7.0.0-beta.50_biqbaboplfbrettd7655fr4n2y
       '@storybook/blocks': 7.0.0-beta.50_biqbaboplfbrettd7655fr4n2y
       '@storybook/react': 7.0.0-beta.50_ygqkwb4gg3aean7xjfdauovyqq
+      '@storybook/react-vite': 7.0.0-beta.50_jpauyvbrjmqmlxhfgzv45zaizm
       '@storybook/react-webpack5': 7.0.0-beta.50_o6p5qsvtzsumueuzp57uzhndem
       '@storybook/testing-library': 0.0.14-next.1
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.10
+      '@vitejs/plugin-react': 3.1.0_vite@4.1.1
       dotenv: 16.0.3
       eslint: 8.34.0
       nodemon: 2.0.20
@@ -189,6 +194,7 @@ importers:
       prop-types: 15.8.1
       storybook: 7.0.0-beta.50
       typescript: 4.9.5
+      vite: 4.1.1
 
   packages/clock:
     specifiers:
@@ -2754,7 +2760,7 @@ packages:
       magic-string: 0.27.0
       react-docgen-typescript: 2.2.2_typescript@4.9.5
       typescript: 4.9.5
-      vite: 4.1.1_@types+node@18.13.0
+      vite: 4.1.1
     dev: true
 
   /@jridgewell/gen-mapping/0.1.1:
@@ -4248,7 +4254,7 @@ packages:
       rollup: 3.15.0
       slash: 3.0.0
       typescript: 4.9.5
-      vite: 4.1.1_@types+node@18.13.0
+      vite: 4.1.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5234,7 +5240,7 @@ packages:
       react: 18.2.0
       react-docgen: 6.0.0-alpha.3
       react-dom: 18.2.0_react@18.2.0
-      vite: 4.1.1_@types+node@18.13.0
+      vite: 4.1.1
     transitivePeerDependencies:
       - '@preact/preset-vite'
       - '@storybook/mdx1-csf'
@@ -6214,7 +6220,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6_@babel+core@7.20.12
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 4.1.1_@types+node@18.13.0
+      vite: 4.1.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -18193,6 +18199,39 @@ packages:
       vite: 4.1.1_@types+node@18.13.0
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /vite/4.1.1:
+    resolution: {integrity: sha512-LM9WWea8vsxhr782r9ntg+bhSFS06FJgCvvB0+8hf8UWtvaiDagKYWXndjfX6kGl74keHJUcpzrQliDXZlF5yg==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': '>= 14'
+      less: '*'
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      esbuild: 0.16.17
+      postcss: 8.4.21
+      resolve: 1.22.1
+      rollup: 3.15.0
+    optionalDependencies:
+      fsevents: 2.3.2
     dev: true
 
   /vite/4.1.1_@types+node@18.13.0:
