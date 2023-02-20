@@ -1,6 +1,7 @@
 import { unstable_createRemixStub } from '@remix-run/testing'
-import * as IndexModule from '../routes'
 import type { ServerRouteModule } from '@remix-run/server-runtime/dist/routeModules'
+import * as IndexModule from '../routes'
+import * as BoardsModule from '../routes/boards'
 
 type TestAppStoryProps = {
   url: TestAppProps['url']
@@ -19,6 +20,7 @@ function TestApp({ url }: TestAppProps) {
 
 const RemixStub = unstable_createRemixStub([
   { path: '/', ...routeFromModule({ module: IndexModule }) },
+  { path: '/boards', ...routeFromModule({ module: BoardsModule }) },
 ])
 
 type Route = Parameters<typeof unstable_createRemixStub>[0][number]

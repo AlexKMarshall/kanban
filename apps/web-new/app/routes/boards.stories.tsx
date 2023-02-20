@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { TestAppStory } from '../test/TestApp'
 
 const meta: Meta<typeof TestAppStory> = {
-  title: 'Routes/index',
+  title: 'Routes/boards',
   component: TestAppStory,
   args: {
     url: '/boards',
