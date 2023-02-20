@@ -1,8 +1,8 @@
 import { unstable_createRemixStub } from '@remix-run/testing'
 import type { ServerRouteModule } from '@remix-run/server-runtime/dist/routeModules'
 
-import * as IndexModule from '../routes'
-import * as BoardsModule from '../routes/boards'
+import * as IndexModule from '../app/routes'
+import * as BoardsModule from '../app/routes/boards'
 
 type TestAppStoryProps = {
   url: TestAppProps['url']
