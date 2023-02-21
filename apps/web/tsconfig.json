@@ -10,6 +10,7 @@
   ],
   "compilerOptions": {
     "baseUrl": ".",
-    "isolatedModules": true
+    "isolatedModules": true,
+    "esModuleInterop": true
   }
 }

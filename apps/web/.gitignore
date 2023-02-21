@@ -4,7 +4,6 @@ node_modules
 /build
 /public/build
 .env
-/storybook-static
-/coverage
-
-*.log
+/test-results/
+/playwright-report/
+/playwright/.cache/

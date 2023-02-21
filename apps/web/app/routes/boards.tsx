@@ -1,19 +1,14 @@
-import { type LoaderArgs } from '@remix-run/node'
+import type { LoaderArgs } from '@remix-run/node'
+import { json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 
-export const loader = async ({ context }: LoaderArgs) => {
-  if (context.db) {
-    const boards = await context.db.board.findMany()
-    console.log(boards)
-  }
+export async function loader({ context }: LoaderArgs) {
+  const boards = await context.db.board.findMany()
 
-  return [
-    { name: 'Project 1', id: 1 },
-    { name: 'Project new', id: 2 },
-  ]
+  return json({ boards, count: boards.length })
 }
 
-export default function BoardsRoute() {
+export default function Boards() {
   const boards = useLoaderData<typeof loader>()
   return (
     <div>
