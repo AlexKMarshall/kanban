@@ -65,8 +65,8 @@ jobs:
         run: pnpx playwright install --with-deps
         if: steps.playwright-cache.outputs.cache-hit != 'true'
 
-      - name: Install Playwright in web new
-        run: cd apps/web-new && pnpx playwright install --with-deps
+      - name: Install Playwright in web
+        run: cd apps/web && pnpx playwright install --with-deps
 
       - name: CI
         run: pnpm ci
@@ -79,5 +79,5 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           onlyChanged: true
-          workingDir: apps/web-new
+          workingDir: apps/web
           storybookBuildDir: storybook-static
