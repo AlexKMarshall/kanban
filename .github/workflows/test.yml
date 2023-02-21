@@ -65,8 +65,8 @@ jobs:
         run: pnpx playwright install --with-deps
         if: steps.playwright-cache.outputs.cache-hit != 'true'
 
-      - name: Install Playwright in web new
-        run: cd apps/web-new && pnpx playwright install --with-deps
+      - name: Install Playwright in web
+        run: cd apps/web && pnpx playwright install --with-deps
 
       - name: CI
         run: pnpm ci
