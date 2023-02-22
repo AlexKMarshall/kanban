@@ -9,9 +9,11 @@
     "dmmf:generate": "node --require esbuild-register prisma/dmmf.ts"
   },
   "dependencies": {
+    "@faker-js/faker": "^7.6.0",
     "@kanban/clock": "workspace:*",
     "@kanban/id-generator": "workspace:*",
-    "@prisma/client": "^4.10.1"
+    "@prisma/client": "^4.10.1",
+    "factory.ts": "^1.3.0"
   },
   "devDependencies": {
     "@kanban/tsconfig": "workspace:*",

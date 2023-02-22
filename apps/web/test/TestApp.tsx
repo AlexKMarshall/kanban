@@ -7,12 +7,14 @@ import {
   type LoaderArgs,
   type LoaderFunction,
 } from '@remix-run/node'
-import { createPrismaMock } from '@kanban/database/mock'
+import { createPrismaMock, createSeedData } from '@kanban/database/mock'
 
 import * as IndexModule from '../app/routes'
 import * as BoardsModule from '../app/routes/boards'
 import { type TestContext, createTestContext } from './test-context'
 import { json } from '@remix-run/server-runtime'
+import type { Board } from '@kanban/database'
+import { getBoards } from './mocks/boards'
 
 type DataFunction = LoaderFunction | ActionFunction
 type DataArgs = LoaderArgs | ActionArgs
@@ -22,11 +24,17 @@ type Middleware = (
 
 type TestAppStoryProps = {
   url: TestAppProps['url']
+  boards: Partial<Board>[]
 }
 
-export function TestAppStory({ url }: TestAppStoryProps) {
+export const testAppStoryDefaultProps = {
+  url: '/',
+  boards: getBoards(),
+}
+
+export function TestAppStory({ url, boards }: TestAppStoryProps) {
   const context = createTestContext({
-    db: createPrismaMock(),
+    db: createPrismaMock({ data: createSeedData({ boards }) }),
   })
   return <TestApp url={url} context={context} />
 }

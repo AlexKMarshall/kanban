@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { TestAppStory } from '../../TestApp'
+import { TestAppStory, testAppStoryDefaultProps } from '../../TestApp'
 
 const meta: Meta<typeof TestAppStory> = {
   title: 'Routes/boards',
   component: TestAppStory,
   args: {
+    ...testAppStoryDefaultProps,
     url: '/boards',
   },
 }
