@@ -13,15 +13,19 @@ export default function Boards() {
   return (
     <div>
       <h1>Boards</h1>
-      <nav>
-        <ul>
-          {boards.map((board) => (
-            <li key={board.id}>
-              <Link to={`${board.id}`}>{board.name}</Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      {boards.length > 0 ? (
+        <nav>
+          <ul>
+            {boards.map((board) => (
+              <li key={board.id}>
+                <Link to={`${board.id}`}>{board.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ) : (
+        <p>Create a board</p>
+      )}
     </div>
   )
 }
