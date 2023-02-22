@@ -1,11 +1,11 @@
 import type { LoaderArgs } from '@remix-run/node'
 import { json } from '@remix-run/node'
-import { useLoaderData } from '@remix-run/react'
+import { Link, useLoaderData } from '@remix-run/react'
 
 export async function loader({ context }: LoaderArgs) {
   const boards = await context.db.board.findMany()
 
-  return json({ boards, count: boards.length })
+  return json(boards)
 }
 
 export default function Boards() {
@@ -13,7 +13,19 @@ export default function Boards() {
   return (
     <div>
       <h1>Boards</h1>
-      <pre>{JSON.stringify(boards, null, 2)}</pre>
+      {boards.length > 0 ? (
+        <nav>
+          <ul>
+            {boards.map((board) => (
+              <li key={board.id}>
+                <Link to={`${board.id}`}>{board.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ) : (
+        <p>Create a board</p>
+      )}
     </div>
   )
 }

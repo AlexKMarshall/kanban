@@ -10,6 +10,7 @@
     "start": "cross-env NODE_ENV=production node --require esbuild-register ./server.js",
     "typecheck": "tsc",
     "lint": "eslint .",
+    "playwright:install": "playwright install --with-deps",
     "test:e2e": "playwright test",
     "storybook:dev": "storybook dev -p 6006",
     "storybook:build": "storybook build"

@@ -11,6 +11,7 @@ jobs:
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       VITE_COVERAGE: true
       DATABASE_URL: 'file:./dev.db'
+      PLAYWRIGHT_SKIP_BROWSER_GC: true
 
     steps:
       - name: Checkout
@@ -65,8 +66,8 @@ jobs:
         run: pnpx playwright install --with-deps
         if: steps.playwright-cache.outputs.cache-hit != 'true'
 
-      - name: Install Playwright in web
-        run: cd apps/web && pnpx playwright install --with-deps
+      # - name: Install Playwright in web
+      #   run: cd apps/web && pnpx playwright install --with-deps
 
       - name: CI
         run: pnpm ci
