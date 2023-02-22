@@ -6,7 +6,11 @@
     "db:generate": "prisma generate",
     "db:studio": "prisma studio",
     "db:push": "prisma db push --skip-generate",
-    "dmmf:generate": "node --require esbuild-register prisma/dmmf.ts"
+    "dmmf:generate": "node --require esbuild-register prisma/dmmf.ts",
+    "db:seed": "prisma db seed"
+  },
+  "prisma": {
+    "seed": "node --require esbuild-register prisma/seed.ts"
   },
   "dependencies": {
     "@faker-js/faker": "^7.6.0",

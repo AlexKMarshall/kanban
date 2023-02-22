@@ -38,6 +38,9 @@
     },
     "test:e2e": {
       "dependsOn": ["build"]
+    },
+    "web#test:e2e": {
+      "dependsOn": ["@kanban/database#db:seed"]
     }
   }
 }
