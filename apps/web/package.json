@@ -36,7 +36,7 @@
     "@babel/preset-typescript": "7.21.0",
     "@kanban/eslint-config-bases": "workspace:*",
     "@kanban/tsconfig": "workspace:*",
-    "@playwright/test": "1.31.0",
+    "@playwright/test": "1.31.1",
     "@remix-run/dev": "1.13.0",
     "@remix-run/eslint-config": "1.13.0",
     "@remix-run/server-runtime": "1.13.0",
