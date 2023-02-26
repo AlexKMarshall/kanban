@@ -6,3 +6,8 @@ declare module '@remix-run/node' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface AppLoadContext extends Context {}
 }
+
+declare module '@remix-run/server-runtime' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface AppLoadContext extends Context {}
+}
