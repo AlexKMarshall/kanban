@@ -16,7 +16,7 @@ import * as BoardIdModule from '../app/routes/boards/$boardId'
 import { type TestContext, createTestContext } from './test-context'
 import { json } from '@remix-run/server-runtime'
 import type { Board } from '@kanban/database'
-import { getBoards } from './mocks/boards'
+import { getFullBoardData } from './mocks/boards'
 
 type DataFunction = LoaderFunction | ActionFunction
 type DataArgs = LoaderArgs | ActionArgs
@@ -31,7 +31,7 @@ type TestAppStoryProps = {
 
 export const testAppStoryDefaultProps = {
   url: '/',
-  boards: getBoards(),
+  ...getFullBoardData(),
 }
 
 export function TestAppStory({ url, boards }: TestAppStoryProps) {

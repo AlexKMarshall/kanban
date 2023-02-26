@@ -15,7 +15,7 @@ model Board {
   name      String   @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  Column    Column[]
+  columns   Column[]
 }
 
 model Column {

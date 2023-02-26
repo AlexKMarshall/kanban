@@ -9,6 +9,16 @@ export async function loader({ params, context }: LoaderArgs) {
     where: {
       id: Number(boardId),
     },
+    select: {
+      id: true,
+      name: true,
+      columns: {
+        select: {
+          id: true,
+          name: true,
+        },
+      },
+    },
   })
 
   if (!board) {
@@ -20,5 +30,18 @@ export async function loader({ params, context }: LoaderArgs) {
 
 export default function BoardIdRoute() {
   const { board } = useLoaderData<typeof loader>()
-  return <h1>{board.name}</h1>
+  return (
+    <div>
+      <h1>{board.name}</h1>
+      {board.columns.length > 0 ? (
+        <ul>
+          {board.columns.map((column) => (
+            <li key={column.id}>{column.name}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>Add a column</p>
+      )}
+    </div>
+  )
 }
