@@ -11,6 +11,7 @@ import { createPrismaMock, createSeedData } from '@kanban/database/mock'
 
 import * as IndexModule from '../app/routes'
 import * as BoardsModule from '../app/routes/boards'
+import * as BoardsIndexModule from '../app/routes/boards/index'
 import { type TestContext, createTestContext } from './test-context'
 import { json } from '@remix-run/server-runtime'
 import type { Board } from '@kanban/database'
@@ -71,10 +72,29 @@ function TestApp({ url, context, delay = 0 }: TestAppProps) {
   }
 
   const RemixStub = unstable_createRemixStub([
-    { path: '/', ...routeFromModule({ module: IndexModule, middleware }) },
+    {
+      path: '/',
+      id: '/',
+      ...routeFromModule({ module: IndexModule, middleware }),
+    },
     {
       path: '/boards',
-      ...routeFromModule({ module: BoardsModule, middleware }),
+      id: 'boards',
+      ...routeFromModule({
+        module: BoardsModule,
+        middleware,
+      }),
+      children: [
+        // @ts-expect-error index typing is weird here
+        {
+          index: true,
+          ...routeFromModule({
+            module: BoardsIndexModule,
+            middleware,
+          }),
+          id: 'boards/index',
+        },
+      ],
     },
   ])
 
