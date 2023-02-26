@@ -12,6 +12,7 @@ import { createPrismaMock, createSeedData } from '@kanban/database/mock'
 import * as IndexModule from '../app/routes'
 import * as BoardsModule from '../app/routes/boards'
 import * as BoardsIndexModule from '../app/routes/boards/index'
+import * as BoardIdModule from '../app/routes/boards/$boardId'
 import { type TestContext, createTestContext } from './test-context'
 import { json } from '@remix-run/server-runtime'
 import type { Board } from '@kanban/database'
@@ -93,6 +94,15 @@ function TestApp({ url, context, delay = 0 }: TestAppProps) {
             middleware,
           }),
           id: 'boards/index',
+        },
+        // @ts-expect-error all the typing on this router is weird, probably better to move this to a separate file
+        {
+          path: ':boardId',
+          id: 'boards/$boardId',
+          ...routeFromModule({
+            module: BoardIdModule,
+            middleware,
+          }),
         },
       ],
     },
