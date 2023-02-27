@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { within, userEvent } from '@storybook/testing-library'
 
 import { TestAppStory, testAppStoryDefaultProps } from '../../TestApp'
 
@@ -15,3 +16,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
+Default.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement)
+  await userEvent.click(
+    await canvas.findByRole('link', { name: /platform launch/i })
+  )
+}
