@@ -1,4 +1,3 @@
-import { Sync } from 'factory.ts'
 import { faker } from '@faker-js/faker'
 
 export type Timestamps = {
@@ -15,10 +14,3 @@ export const buildTimestamps = (
 
   return { createdAt, updatedAt }
 }
-
-export const timestamps: Sync.Factory<Timestamps> = Sync.makeFactory({
-  createdAt: Sync.each(faker.date.recent),
-  updatedAt: new Date(),
-}).withDerivation1(['createdAt'], 'updatedAt', (createdAt) =>
-  faker.date.between(createdAt, new Date())
-)
