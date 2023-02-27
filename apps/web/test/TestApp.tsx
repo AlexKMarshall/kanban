@@ -11,10 +11,16 @@ import { createPrismaMock, createSeedData } from '@kanban/database/mock'
 
 import * as IndexModule from '../app/routes'
 import * as BoardsModule from '../app/routes/boards'
+import * as BoardsIndexModule from '../app/routes/boards/index'
+import * as BoardIdModule from '../app/routes/boards/$boardId'
 import { type TestContext, createTestContext } from './test-context'
 import { json } from '@remix-run/server-runtime'
-import type { Board } from '@kanban/database'
-import { getBoards } from './mocks/boards'
+import { getFullBoardData } from './mocks/boards'
+import type {
+  buildBoard,
+  buildColumn,
+  buildTask,
+} from '@kanban/database/mock/factories'
 
 type DataFunction = LoaderFunction | ActionFunction
 type DataArgs = LoaderArgs | ActionArgs
@@ -24,17 +30,24 @@ type Middleware = (
 
 type TestAppStoryProps = {
   url: TestAppProps['url']
-  boards: Partial<Board>[]
+  boards: Array<Parameters<typeof buildBoard>[0]>
+  columns: Array<Parameters<typeof buildColumn>[0]>
+  tasks: Array<Parameters<typeof buildTask>[0]>
 }
 
 export const testAppStoryDefaultProps = {
   url: '/',
-  boards: getBoards(),
+  ...getFullBoardData(),
 }
 
-export function TestAppStory({ url, boards }: TestAppStoryProps) {
+export function TestAppStory({
+  url,
+  boards,
+  columns,
+  tasks,
+}: TestAppStoryProps) {
   const context = createTestContext({
-    db: createPrismaMock({ data: createSeedData({ boards }) }),
+    db: createPrismaMock({ data: createSeedData({ boards, columns, tasks }) }),
   })
   return <TestApp url={url} context={context} />
 }
@@ -71,10 +84,38 @@ function TestApp({ url, context, delay = 0 }: TestAppProps) {
   }
 
   const RemixStub = unstable_createRemixStub([
-    { path: '/', ...routeFromModule({ module: IndexModule, middleware }) },
+    {
+      path: '/',
+      id: '/',
+      ...routeFromModule({ module: IndexModule, middleware }),
+    },
     {
       path: '/boards',
-      ...routeFromModule({ module: BoardsModule, middleware }),
+      id: 'boards',
+      ...routeFromModule({
+        module: BoardsModule,
+        middleware,
+      }),
+      children: [
+        // @ts-expect-error index typing is weird here
+        {
+          index: true,
+          ...routeFromModule({
+            module: BoardsIndexModule,
+            middleware,
+          }),
+          id: 'boards/index',
+        },
+        // @ts-expect-error all the typing on this router is weird, probably better to move this to a separate file
+        {
+          path: ':boardId',
+          id: 'boards/$boardId',
+          ...routeFromModule({
+            module: BoardIdModule,
+            middleware,
+          }),
+        },
+      ],
     },
   ])
 

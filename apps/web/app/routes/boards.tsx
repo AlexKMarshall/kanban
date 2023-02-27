@@ -1,6 +1,6 @@
 import type { LoaderArgs } from '@remix-run/node'
 import { json } from '@remix-run/node'
-import { Link, useLoaderData } from '@remix-run/react'
+import { Link, Outlet, useLoaderData } from '@remix-run/react'
 
 export async function loader({ context }: LoaderArgs) {
   const boards = await context.db.board.findMany()
@@ -26,6 +26,7 @@ export default function Boards() {
       ) : (
         <p>Create a board</p>
       )}
+      <Outlet />
     </div>
   )
 }
