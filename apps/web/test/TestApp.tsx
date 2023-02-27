@@ -15,8 +15,12 @@ import * as BoardsIndexModule from '../app/routes/boards/index'
 import * as BoardIdModule from '../app/routes/boards/$boardId'
 import { type TestContext, createTestContext } from './test-context'
 import { json } from '@remix-run/server-runtime'
-import type { Board } from '@kanban/database'
 import { getFullBoardData } from './mocks/boards'
+import type {
+  buildBoard,
+  buildColumn,
+  buildTask,
+} from '@kanban/database/mock/factories'
 
 type DataFunction = LoaderFunction | ActionFunction
 type DataArgs = LoaderArgs | ActionArgs
@@ -26,7 +30,9 @@ type Middleware = (
 
 type TestAppStoryProps = {
   url: TestAppProps['url']
-  boards: Partial<Board>[]
+  boards: Array<Parameters<typeof buildBoard>[0]>
+  columns: Array<Parameters<typeof buildColumn>[0]>
+  tasks: Array<Parameters<typeof buildTask>[0]>
 }
 
 export const testAppStoryDefaultProps = {
@@ -34,9 +40,14 @@ export const testAppStoryDefaultProps = {
   ...getFullBoardData(),
 }
 
-export function TestAppStory({ url, boards }: TestAppStoryProps) {
+export function TestAppStory({
+  url,
+  boards,
+  columns,
+  tasks,
+}: TestAppStoryProps) {
   const context = createTestContext({
-    db: createPrismaMock({ data: createSeedData({ boards }) }),
+    db: createPrismaMock({ data: createSeedData({ boards, columns, tasks }) }),
   })
   return <TestApp url={url} context={context} />
 }

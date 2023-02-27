@@ -8,7 +8,7 @@ export const buildTask = ({
   ...overrides
 }: SetRequired<Partial<Task>, 'columnId'>): Task => {
   const id = overrides.id ?? faker.datatype.uuid()
-  const name = overrides.name ?? faker.company.catchPhrase()
+  const title = overrides.title ?? faker.company.catchPhrase()
 
-  return { columnId, id, name, ...buildTimestamps(overrides) }
+  return { columnId, id, title, ...buildTimestamps(overrides) }
 }

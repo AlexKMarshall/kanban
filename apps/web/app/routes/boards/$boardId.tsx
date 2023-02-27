@@ -20,7 +20,7 @@ export async function loader({ params, context }: LoaderArgs) {
           tasks: {
             select: {
               id: true,
-              name: true,
+              title: true,
             },
           },
         },
@@ -48,7 +48,7 @@ export default function BoardIdRoute() {
               {column.tasks.length > 0 ? (
                 <ul>
                   {column.tasks.map((task) => (
-                    <li key={task.id}>{task.name}</li>
+                    <li key={task.id}>{task.title}</li>
                   ))}
                 </ul>
               ) : (
