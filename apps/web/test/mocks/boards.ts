@@ -1,20 +1,15 @@
-import type { Board, Column } from '@kanban/database'
+import type { Board, Column, Task } from '@kanban/database'
 import {
-  boardFactory,
   buildBoard,
   buildColumn,
+  buildTask,
 } from '@kanban/database/mock/factories'
 import boardData from './data.json'
-
-export const getBoards = () => [
-  boardFactory.build({ name: 'Platform launch' }),
-  boardFactory.build({ name: 'Marketing plan' }),
-  boardFactory.build({ name: 'Roadmap' }),
-]
 
 export const getFullBoardData = () => {
   const boards: Board[] = []
   const columns: Column[] = []
+  const tasks: Task[] = []
 
   boardData.boards.forEach((boardOverrides) => {
     const board = buildBoard(boardOverrides)
@@ -23,8 +18,13 @@ export const getFullBoardData = () => {
     boardOverrides.columns.forEach((columnOverrides) => {
       const column = buildColumn({ ...columnOverrides, boardId: board.id })
       columns.push(column)
+
+      columnOverrides.tasks.forEach((taskOverrides) => {
+        const task = buildTask({ ...taskOverrides, columnId: column.id })
+        tasks.push(task)
+      })
     })
   })
 
-  return { boards, columns }
+  return { boards, columns, tasks }
 }

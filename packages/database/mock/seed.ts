@@ -1,7 +1,7 @@
-import { Board, PrismaClient } from '@prisma/client'
-import { PrismaMockData } from '../prisma-mock'
+import { PrismaClient } from '@prisma/client'
 import { buildColumn } from './factories'
-import { boardFactory, buildBoard } from './factories/board'
+import { buildBoard } from './factories/board'
+import { buildTask } from './factories/task'
 
 export async function seed(
   db: PrismaClient,
@@ -15,19 +15,16 @@ export async function seed(
   await Promise.all(
     seedData.column.map((column) => db.column.create({ data: column }))
   )
+  await Promise.all(seedData.task.map((task) => db.task.create({ data: task })))
 }
 
 export function createSeedData(
   overrides: {
     boards?: Array<Parameters<typeof buildBoard>[0]>
     columns?: Array<Parameters<typeof buildColumn>[0]>
+    tasks?: Array<Parameters<typeof buildTask>[0]>
   } = {}
 ) {
-  const data: PrismaMockData<PrismaClient> = {
-    board: [],
-    column: [],
-  }
-
   const board = (overrides.boards ?? Array.from({ length: 3 })).map(buildBoard)
 
   const column = (
@@ -37,8 +34,16 @@ export function createSeedData(
     )
   ).map(buildColumn)
 
+  const task = (
+    overrides.tasks ??
+    column.flatMap(({ id: columnId }) =>
+      Array.from({ length: 3 }, () => ({ columnId }))
+    )
+  ).map(buildTask)
+
   return {
     board,
     column,
+    task,
   }
 }
