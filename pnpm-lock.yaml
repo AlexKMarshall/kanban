@@ -27,7 +27,7 @@ importers:
       '@kanban/database': workspace:*
       '@kanban/eslint-config-bases': workspace:*
       '@kanban/tsconfig': workspace:*
-      '@playwright/test': 1.31.0
+      '@playwright/test': 1.31.1
       '@remix-run/dev': 1.13.0
       '@remix-run/eslint-config': 1.13.0
       '@remix-run/express': 1.13.0
@@ -82,7 +82,7 @@ importers:
       '@babel/preset-typescript': 7.21.0_@babel+core@7.20.12
       '@kanban/eslint-config-bases': link:../../packages/eslint-config-bases
       '@kanban/tsconfig': link:../../packages/tsconfig
-      '@playwright/test': 1.31.0
+      '@playwright/test': 1.31.1
       '@remix-run/dev': 1.13.0
       '@remix-run/eslint-config': 1.13.0_km5ddj7uwb23cqeymeyvzjsfb4
       '@remix-run/server-runtime': 1.13.0
@@ -2274,13 +2274,13 @@ packages:
       tiny-glob: 0.2.9
       tslib: 2.5.0
 
-  /@playwright/test/1.31.0:
-    resolution: {integrity: sha512-Ys5s/06Dg9g3zAIdCIb/UOBYim3U7Zjb3DvC6XBtnRmnglH5O47iwYzmtxXu9fhSyzI2Jn28apkXIOD81GgCdw==}
+  /@playwright/test/1.31.1:
+    resolution: {integrity: sha512-IsytVZ+0QLDh1Hj83XatGp/GsI1CDJWbyDaBGbainsh0p2zC7F4toUocqowmjS6sQff2NGT3D9WbDj/3K2CJiA==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
       '@types/node': 18.14.0
-      playwright-core: 1.31.0
+      playwright-core: 1.31.1
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
@@ -10061,8 +10061,8 @@ packages:
       pathe: 1.1.0
     dev: true
 
-  /playwright-core/1.31.0:
-    resolution: {integrity: sha512-/KquBjS5DcASCh8cGeNVHuC0kyb7c9plKTwaKxgOGtxT7+DZO2fjmFvPDBSXslEIK5CeOO/2kk5rOCktFXKEdA==}
+  /playwright-core/1.31.1:
+    resolution: {integrity: sha512-JTyX4kV3/LXsvpHkLzL2I36aCdml4zeE35x+G5aPc4bkLsiRiQshU5lWeVpHFAuC8xAcbI6FDcw/8z3q2xtJSQ==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
