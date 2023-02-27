@@ -124,14 +124,14 @@ importers:
       '@prisma/client': 4.10.1
       esbuild-register: 3.4.2
       prisma: 4.10.1
-      type-fest: ^3.6.0
+      type-fest: 3.6.1
       typescript: 4.9.5
     dependencies:
       '@faker-js/faker': 7.6.0
       '@kanban/clock': link:../clock
       '@kanban/id-generator': link:../id-generator
       '@prisma/client': 4.10.1_prisma@4.10.1
-      type-fest: 3.6.0
+      type-fest: 3.6.1
     devDependencies:
       '@kanban/tsconfig': link:../tsconfig
       esbuild-register: 3.4.2_esbuild@0.16.17
@@ -11912,8 +11912,8 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /type-fest/3.6.0:
-    resolution: {integrity: sha512-RqTRtKTzvPpNdDUp1dVkKQRunlPITk4mXeqFlAZoJsS+fLRn8AdPK0TcQDumGayhU7fjlBfiBjsq3pe3rIfXZQ==}
+  /type-fest/3.6.1:
+    resolution: {integrity: sha512-htXWckxlT6U4+ilVgweNliPqlsVSSucbxVexRYllyMVJDtf5rTjv6kF/s+qAd4QSL1BZcnJPEJavYBPQiWuZDA==}
     engines: {node: '>=14.16'}
     dev: false
 
