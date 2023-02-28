@@ -16,13 +16,13 @@
     "@faker-js/faker": "7.6.0",
     "@kanban/clock": "workspace:*",
     "@kanban/id-generator": "workspace:*",
-    "@prisma/client": "4.10.1",
+    "@prisma/client": "4.11.0",
     "type-fest": "3.6.1"
   },
   "devDependencies": {
     "@kanban/tsconfig": "workspace:*",
     "esbuild-register": "3.4.2",
-    "prisma": "4.10.1",
+    "prisma": "4.11.0",
     "typescript": "4.9.5"
   }
 }
