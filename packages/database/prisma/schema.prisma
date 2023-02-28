@@ -12,7 +12,7 @@ datasource db {
 
 model Board {
   id        String   @id @default(uuid())
-  name      String
+  name      String   @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   columns   Column[]
@@ -26,6 +26,8 @@ model Column {
   board     Board    @relation(fields: [boardId], references: [id])
   boardId   String
   tasks     Task[]
+
+  @@unique([name, boardId])
 }
 
 model Task {
