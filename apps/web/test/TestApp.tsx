@@ -1,5 +1,3 @@
-import { unstable_createRemixStub } from '@remix-run/testing'
-import type { ServerRouteModule } from '@remix-run/server-runtime/dist/routeModules'
 import { sleep } from '@kanban/clock'
 import {
   type ActionArgs,
@@ -9,11 +7,6 @@ import {
 } from '@remix-run/node'
 import { createPrismaMock, createSeedData } from '@kanban/database/mock'
 
-import * as IndexModule from '../app/routes'
-import * as BoardsModule from '../app/routes/boards'
-import * as BoardsIndexModule from '../app/routes/boards/index'
-import * as BoardIdModule from '../app/routes/boards/$boardId'
-import * as BoardsNewModule from '../app/routes/boards/new'
 import { type TestContext, createTestContext } from './test-context'
 import { json } from '@remix-run/server-runtime'
 import { getFullBoardData } from './mocks/boards'
@@ -22,6 +15,7 @@ import type {
   buildColumn,
   buildTask,
 } from '@kanban/database/mock/factories'
+import { createRouter } from './router'
 
 type DataFunction = LoaderFunction | ActionFunction
 type DataArgs = LoaderArgs | ActionArgs
@@ -84,69 +78,7 @@ function TestApp({ url, context, delay = 0 }: TestAppProps) {
     return response
   }
 
-  const RemixStub = unstable_createRemixStub([
-    {
-      path: '/',
-      id: '/',
-      ...routeFromModule({ module: IndexModule, middleware }),
-    },
-    {
-      path: '/boards',
-      id: 'boards',
-      ...routeFromModule({
-        module: BoardsModule,
-        middleware,
-      }),
-      children: [
-        // @ts-expect-error index typing is weird here
-        {
-          index: true,
-          ...routeFromModule({
-            module: BoardsIndexModule,
-            middleware,
-          }),
-          id: 'boards/index',
-        },
-        // @ts-expect-error all the typing on this router is weird, probably better to move this to a separate file
-        {
-          path: ':boardId',
-          id: 'boards/$boardId',
-          ...routeFromModule({
-            module: BoardIdModule,
-            middleware,
-          }),
-        },
-        // @ts-expect-error all the typing on this router is weird, probably better to move this to a separate file
-        {
-          path: 'new',
-          id: 'boards/new',
-          ...routeFromModule({
-            module: BoardsNewModule,
-            middleware,
-          }),
-        },
-      ],
-    },
-  ])
+  const Router = createRouter(middleware)
 
-  return <RemixStub initialEntries={[url]} />
-}
-
-type Route = Parameters<typeof unstable_createRemixStub>[0][number]
-function routeFromModule({
-  module,
-  middleware,
-}: {
-  module: Partial<ServerRouteModule>
-  middleware: Middleware
-}): Route {
-  const Component = module.default
-
-  return {
-    // @ts-expect-error React Router types have context as optional, but we're making them required
-    loader: module.loader ? middleware(module.loader) : undefined,
-    // @ts-expect-error React Router types have context as optional, but we're making them required
-    action: module.action ? middleware(module.action) : undefined,
-    element: Component ? <Component /> : undefined,
-  }
+  return <Router initialEntries={[url]} />
 }
