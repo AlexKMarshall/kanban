@@ -13,6 +13,7 @@ import * as IndexModule from '../app/routes'
 import * as BoardsModule from '../app/routes/boards'
 import * as BoardsIndexModule from '../app/routes/boards/index'
 import * as BoardIdModule from '../app/routes/boards/$boardId'
+import * as BoardsNewModule from '../app/routes/boards/new'
 import { type TestContext, createTestContext } from './test-context'
 import { json } from '@remix-run/server-runtime'
 import { getFullBoardData } from './mocks/boards'
@@ -112,6 +113,15 @@ function TestApp({ url, context, delay = 0 }: TestAppProps) {
           id: 'boards/$boardId',
           ...routeFromModule({
             module: BoardIdModule,
+            middleware,
+          }),
+        },
+        // @ts-expect-error all the typing on this router is weird, probably better to move this to a separate file
+        {
+          path: 'new',
+          id: 'boards/new',
+          ...routeFromModule({
+            module: BoardsNewModule,
             middleware,
           }),
         },
