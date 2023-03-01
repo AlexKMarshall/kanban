@@ -9,7 +9,7 @@ import { createPrismaMock, createSeedData } from '@kanban/database/mock'
 
 import { type TestContext, createTestContext } from './test-context'
 import { json } from '@remix-run/server-runtime'
-import { getFullBoardData } from './mocks/boards'
+import { fullBoardData, getFullBoardData } from './mocks/boards'
 import type {
   buildBoard,
   buildColumn,
@@ -32,7 +32,7 @@ type TestAppStoryProps = {
 
 export const testAppStoryDefaultProps = {
   url: '/',
-  ...getFullBoardData(),
+  ...fullBoardData,
 }
 
 export function TestAppStory({

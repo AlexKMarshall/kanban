@@ -1,6 +1,6 @@
 import type { LoaderArgs } from '@remix-run/node'
 import { json } from '@remix-run/node'
-import { useLoaderData } from '@remix-run/react'
+import { Outlet, useLoaderData } from '@remix-run/react'
 import { Fragment } from 'react'
 
 export async function loader({ params, context }: LoaderArgs) {
@@ -40,6 +40,7 @@ export default function BoardIdRoute() {
   return (
     <div>
       <h1>{board.name}</h1>
+      <Outlet />
       {board.columns.length > 0 ? (
         <>
           {board.columns.map((column) => (
