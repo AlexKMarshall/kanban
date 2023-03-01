@@ -31,3 +31,13 @@ export const Valid: Story = {
     )
   },
 }
+
+export const MissingName: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    await userEvent.click(
+      await canvas.findByRole('button', { name: /create new board/i })
+    )
+  },
+}
