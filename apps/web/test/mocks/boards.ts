@@ -28,3 +28,5 @@ export const getFullBoardData = () => {
 
   return { boards, columns, tasks }
 }
+
+export const fullBoardData = getFullBoardData()
