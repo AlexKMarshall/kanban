@@ -62,6 +62,7 @@ importers:
       storybook: 7.0.0-beta.57
       typescript: 4.9.5
       vite: 4.1.4
+      zod: ^3.20.6
     dependencies:
       '@kanban/clock': link:../../packages/clock
       '@kanban/database': link:../../packages/database
@@ -76,6 +77,7 @@ importers:
       morgan: 1.10.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      zod: 3.20.6
     devDependencies:
       '@babel/preset-env': 7.20.2_@babel+core@7.20.12
       '@babel/preset-react': 7.18.6_@babel+core@7.20.12
@@ -12704,6 +12706,10 @@ packages:
   /yocto-queue/0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  /zod/3.20.6:
+    resolution: {integrity: sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==}
+    dev: false
 
   /zwitch/2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}

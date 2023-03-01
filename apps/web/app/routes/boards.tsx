@@ -23,9 +23,8 @@ export default function Boards() {
             ))}
           </ul>
         </nav>
-      ) : (
-        <p>Create a board</p>
-      )}
+      ) : null}
+      <Link to="new">Create New Board</Link>
       <Outlet />
     </div>
   )
