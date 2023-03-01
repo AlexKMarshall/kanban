@@ -1,4 +1,4 @@
-import { Form, useLoaderData } from '@remix-run/react'
+import { Form, useActionData, useLoaderData } from '@remix-run/react'
 import {
   ActionArgs,
   json,
@@ -68,10 +68,11 @@ export async function action({ params, request, context }: ActionArgs) {
   if (!column) {
     return json({
       fieldErrors: {
+        title: [],
         columnId: ['Column not found'],
-        formErrors: [],
-        fields: parsedForm.data,
       },
+      formErrors: [],
+      fields: parsedForm.data,
     })
   }
 
@@ -91,21 +92,51 @@ export async function action({ params, request, context }: ActionArgs) {
 
 export default function BoardsBoardIdNewTaskRoute() {
   const { columns } = useLoaderData<typeof loader>()
+  const error = useActionData<typeof action>()
 
   return (
     <div>
       <h2>Add new task</h2>
       <Form method="post">
         <label htmlFor="title">Title</label>
-        <input type="text" id="title" name="title" />
+        <input
+          type="text"
+          id="title"
+          name="title"
+          aria-invalid={error?.fieldErrors?.title?.length ? true : undefined}
+          aria-errormessage={
+            error?.fieldErrors?.title?.length ? 'title-error' : undefined
+          }
+        />
+        {error?.fieldErrors?.title?.length ? (
+          <ul id="title-error">
+            {error.fieldErrors.title.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+        ) : null}
         <label htmlFor="column">Column</label>
-        <select name="columnId" id="column">
+        <select
+          name="columnId"
+          id="column"
+          aria-invalid={error?.fieldErrors.columnId?.length ? true : undefined}
+          aria-errormessage={
+            error?.fieldErrors.columnId?.length ? 'column-error' : undefined
+          }
+        >
           {columns.map((column) => (
             <option key={column.id} value={column.id}>
               {column.name}
             </option>
           ))}
         </select>
+        {error?.fieldErrors?.columnId?.length ? (
+          <ul id="column-error">
+            {error.fieldErrors.columnId.map((error) => (
+              <li key={error}>{error}</li>
+            ))}
+          </ul>
+        ) : null}
         <button type="submit">Create task</button>
       </Form>
     </div>
