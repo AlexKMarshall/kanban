@@ -3,6 +3,10 @@ import { Form, useActionData } from '@remix-run/react'
 import { ActionArgs, json, redirect } from '@remix-run/server-runtime'
 import { z } from 'zod'
 
+const newBoardBasicTypesSchema = z.object({
+  name: z.string(),
+})
+
 const newBoardSchema = z.object({
   name: z.string().min(3),
 })
@@ -10,10 +14,35 @@ const newBoardSchema = z.object({
 export async function action({ context, request }: ActionArgs) {
   const formPayload = Object.fromEntries(await request.formData())
 
-  const parsedForm = newBoardSchema.safeParse(formPayload)
+  const typeChecked = newBoardBasicTypesSchema.safeParse(formPayload)
+  if (!typeChecked.success) {
+    throw typeChecked.error
+  }
+
+  const typeCheckedFormPayload = typeChecked.data
+
+  const parsedForm = newBoardSchema.safeParse(typeCheckedFormPayload)
 
   if (!parsedForm.success) {
-    return json(parsedForm.error.flatten(), { status: 400 })
+    return json(
+      { ...parsedForm.error.flatten(), fields: typeCheckedFormPayload },
+      { status: 400 }
+    )
+  }
+
+  const existingBoard = await context.db.board.findUnique({
+    where: { name: parsedForm.data.name },
+  })
+
+  if (existingBoard) {
+    return json(
+      {
+        fieldErrors: { name: ['Board name already exists'] },
+        formErrors: [],
+        fields: parsedForm.data,
+      },
+      { status: 400 }
+    )
   }
 
   const board = await context.db.board.create({

@@ -41,3 +41,18 @@ export const MissingName: Story = {
     )
   },
 }
+
+export const ExistingName: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    await userEvent.type(
+      await canvas.findByLabelText(/board name/i),
+      'Platform Launch'
+    )
+
+    await userEvent.click(
+      await canvas.findByRole('button', { name: /create new board/i })
+    )
+  },
+}
