@@ -7,12 +7,12 @@ import {
   type LoaderArgs,
   type LoaderFunction,
 } from '@remix-run/node'
-import * as IndexModule from '../app/routes'
+import * as IndexModule from '../app/routes/_index'
 import * as BoardsModule from '../app/routes/boards'
-import * as BoardsIndexModule from '../app/routes/boards/index'
-import * as BoardIdModule from '../app/routes/boards/$boardId'
-import * as BoardsNewModule from '../app/routes/boards/new'
-import * as BoardsBoardIdNewTaskModule from '../app/routes/boards/$boardId/new-task'
+import * as BoardsIndexModule from '../app/routes/boards._index'
+import * as BoardIdModule from '../app/routes/boards.$boardId'
+import * as BoardsNewModule from '../app/routes/boards.new'
+import * as BoardsBoardIdNewTaskModule from '../app/routes/boards.$boardId.new-task'
 
 type DataFunction = LoaderFunction | ActionFunction
 type DataArgs = LoaderArgs | ActionArgs

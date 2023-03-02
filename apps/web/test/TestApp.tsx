@@ -9,7 +9,7 @@ import { createPrismaMock, createSeedData } from '@kanban/database/mock'
 
 import { type TestContext, createTestContext } from './test-context'
 import { json } from '@remix-run/server-runtime'
-import { fullBoardData, getFullBoardData } from './mocks/boards'
+import { fullBoardData } from './mocks/boards'
 import type {
   buildBoard,
   buildColumn,
