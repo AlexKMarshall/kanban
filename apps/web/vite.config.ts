@@ -1,6 +1,7 @@
 // import path from 'node:path'
 import react from '@vitejs/plugin-react'
 import { defineConfig, loadEnv } from 'vite'
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 // import istanbul from 'vite-plugin-istanbul'
 
 export default defineConfig(({ mode }) => {
@@ -15,6 +16,7 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       react(),
+      vanillaExtractPlugin(),
       // istanbul({
       //   forceBuildInstrument: true,
       //   requireEnv: true,
