@@ -28,11 +28,20 @@ type TestAppStoryProps = {
   boards: Array<Parameters<typeof buildBoard>[0]>
   columns: Array<Parameters<typeof buildColumn>[0]>
   tasks: Array<Parameters<typeof buildTask>[0]>
+  connection: 'very fast' | 'fast' | 'slow' | 'very slow'
 }
 
 export const testAppStoryDefaultProps = {
   url: '/',
   ...fullBoardData,
+  connection: 'very fast',
+} satisfies Partial<TestAppStoryProps>
+
+const networkDelayMap: Record<TestAppStoryProps['connection'], number> = {
+  'very fast': 0,
+  fast: 100,
+  slow: 500,
+  'very slow': 1000,
 }
 
 export function TestAppStory({
@@ -40,11 +49,14 @@ export function TestAppStory({
   boards,
   columns,
   tasks,
+  connection,
 }: TestAppStoryProps) {
   const context = createTestContext({
     db: createPrismaMock({ data: createSeedData({ boards, columns, tasks }) }),
   })
-  return <TestApp url={url} context={context} />
+  return (
+    <TestApp url={url} context={context} delay={networkDelayMap[connection]} />
+  )
 }
 
 type TestAppProps = {
