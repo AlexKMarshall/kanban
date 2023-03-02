@@ -6,7 +6,7 @@ import {
 } from '@kanban/database/mock/factories'
 import boardData from './data.json'
 
-export const getFullBoardData = () => {
+const getFullBoardData = () => {
   const boards: Board[] = []
   const columns: Column[] = []
   const tasks: Task[] = []
