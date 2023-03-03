@@ -20,3 +20,10 @@ export const boardName = style({
     },
   },
 })
+
+export const columnName = style({
+  fontSize: '0.75rem',
+  letterSpacing: '0.2em',
+  lineHeight: 1.25,
+  textTransform: 'uppercase',
+})

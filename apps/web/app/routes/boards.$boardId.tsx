@@ -61,7 +61,7 @@ export default function BoardIdRoute() {
         <div className={styles.columnWrapper}>
           {board.columns.map((column) => (
             <div key={column.id}>
-              <h2>{column.name}</h2>
+              <h2 className={styles.columnName}>{column.name}</h2>
               {column.tasks.length > 0 ? (
                 <ul>
                   {column.tasks.map((task) => (
