@@ -54,7 +54,9 @@ export default function Boards() {
             </ul>
           </nav>
         ) : null}
-        <Link to="new">Create New Board</Link>
+        <Link className={styles.board} to="new">
+          Create New Board
+        </Link>
       </div>
       <main className={styles.main}>
         <Outlet />
