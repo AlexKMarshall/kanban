@@ -8,6 +8,7 @@ import {
   ScrollRestoration,
 } from '@remix-run/react'
 import { cssBundleHref } from '@remix-run/css-bundle'
+import './styles/root.css'
 
 export const links: LinksFunction = () => {
   return [
@@ -29,6 +30,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <div>This is the root</div>
         <Outlet />
         <ScrollRestoration />
         <Scripts />

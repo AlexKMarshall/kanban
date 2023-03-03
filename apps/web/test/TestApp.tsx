@@ -6,6 +6,7 @@ import {
   type LoaderFunction,
 } from '@remix-run/node'
 import { createPrismaMock, createSeedData } from '@kanban/database/mock'
+import '../app/styles/root.css'
 
 import { type TestContext, createTestContext } from './test-context'
 import { json } from '@remix-run/server-runtime'
