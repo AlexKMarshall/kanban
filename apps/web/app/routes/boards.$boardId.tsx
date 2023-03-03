@@ -2,6 +2,7 @@ import type { LoaderArgs } from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { Outlet, useLoaderData } from '@remix-run/react'
 import { Fragment } from 'react'
+import * as styles from '../styles/boards.$boardId.css'
 
 export async function loader({ params, context }: LoaderArgs) {
   const { boardId } = params
@@ -42,9 +43,9 @@ export default function BoardIdRoute() {
       <h1>{board.name}</h1>
       <Outlet />
       {board.columns.length > 0 ? (
-        <>
+        <div className={styles.columnWrapper}>
           {board.columns.map((column) => (
-            <Fragment key={column.id}>
+            <div key={column.id}>
               <h2>{column.name}</h2>
               {column.tasks.length > 0 ? (
                 <ul>
@@ -55,9 +56,9 @@ export default function BoardIdRoute() {
               ) : (
                 <p>Add a task</p>
               )}
-            </Fragment>
+            </div>
           ))}
-        </>
+        </div>
       ) : (
         <p>Add a column</p>
       )}
