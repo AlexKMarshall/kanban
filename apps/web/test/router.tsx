@@ -92,5 +92,6 @@ function routeFromModule({
     // @ts-expect-error React Router types have context as optional, but we're making them required
     action: module.action ? middleware(module.action) : undefined,
     element: Component ? <Component /> : undefined,
+    handle: module.handle,
   }
 }
