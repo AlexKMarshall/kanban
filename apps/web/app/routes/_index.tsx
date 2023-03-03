@@ -1,5 +1,6 @@
 import { Link } from '@remix-run/react'
 import * as styles from '../styles/_index.css'
+import '../styles/root.css'
 
 export default function Index() {
   return (

@@ -6,7 +6,7 @@ import {
   type LoaderFunction,
 } from '@remix-run/node'
 import { createPrismaMock, createSeedData } from '@kanban/database/mock'
-import '../app/styles/root.css'
+import * as styles from '../app/styles/root.css'
 
 import { type TestContext, createTestContext } from './test-context'
 import { json } from '@remix-run/server-runtime'
@@ -97,5 +97,9 @@ function TestApp({ url, context, delay = () => 0 }: TestAppProps) {
 
   const Router = createRouter(middleware)
 
-  return <Router initialEntries={[url]} />
+  return (
+    <div className={styles.globalStyleWorkaround}>
+      <Router initialEntries={[url]} />
+    </div>
+  )
 }

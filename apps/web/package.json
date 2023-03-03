@@ -13,7 +13,8 @@
     "playwright:install": "playwright install --with-deps",
     "test:e2e": "playwright test",
     "storybook:dev": "storybook dev -p 6006",
-    "storybook:build": "storybook build"
+    "storybook:build": "storybook build",
+    "storybook:serve": "http-server storybook-static -p 6007"
   },
   "dependencies": {
     "@kanban/clock": "workspace:*",
@@ -58,6 +59,7 @@
     "@vitejs/plugin-react": "3.1.0",
     "dotenv": "16.0.3",
     "eslint": "8.35.0",
+    "http-server": "^14.1.1",
     "nodemon": "2.0.20",
     "npm-run-all": "4.1.5",
     "prop-types": "15.8.1",
