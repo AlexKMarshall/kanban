@@ -1,7 +1,6 @@
-import type { LoaderArgs } from '@remix-run/node'
+import type { LoaderArgs, SerializeFrom } from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { Outlet, useLoaderData } from '@remix-run/react'
-import { Fragment } from 'react'
 import * as styles from '../styles/boards.$boardId.css'
 
 export async function loader({ params, context }: LoaderArgs) {
@@ -36,11 +35,27 @@ export async function loader({ params, context }: LoaderArgs) {
   return json({ board })
 }
 
+// https://sergiodxa.com/articles/bubble-up-data-on-remix-routes#bubbling-components
+type HeaderProps = {
+  data: SerializeFrom<typeof loader>
+}
+function Header({ data }: HeaderProps) {
+  const { board } = data
+  return (
+    <header>
+      <h1>{board.name}</h1>
+    </header>
+  )
+}
+
+export const handle = {
+  Header,
+}
+
 export default function BoardIdRoute() {
   const { board } = useLoaderData<typeof loader>()
   return (
     <div>
-      <h1>{board.name}</h1>
       <Outlet />
       {board.columns.length > 0 ? (
         <div className={styles.columnWrapper}>
