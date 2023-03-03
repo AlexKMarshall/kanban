@@ -3,11 +3,18 @@ import { style } from '@vanilla-extract/css'
 export const layout = style({
   display: 'grid',
   minHeight: '100vh',
-  gridTemplateColumns: 'auto 1fr',
+  // gridTemplateColumns: 'auto 1fr',
   gridTemplateRows: 'auto 1fr',
-  gridTemplateAreas: `"logo header"
-                      "nav main"`,
+  gridTemplateAreas: `"header"
+                      "main"`,
   gap: '1rem',
+  '@media': {
+    'screen and (min-width: 768px)': {
+      gridTemplateColumns: 'auto 1fr',
+      gridTemplateAreas: `"logo header"
+                          "nav main"`,
+    },
+  },
 })
 
 export const header = style({
@@ -15,7 +22,13 @@ export const header = style({
 })
 
 export const nav = style({
-  gridArea: 'nav',
+  display: 'none',
+  '@media': {
+    'screen and (min-width: 768px)': {
+      display: 'block',
+      gridArea: 'nav',
+    },
+  },
 })
 
 export const main = style({
