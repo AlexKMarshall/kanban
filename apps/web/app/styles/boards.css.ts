@@ -21,3 +21,8 @@ export const nav = style({
 export const main = style({
   gridArea: 'main',
 })
+
+export const board = style({
+  fontSize: '0.9375rem',
+  fontWeight: 700,
+})
