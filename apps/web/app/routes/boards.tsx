@@ -46,13 +46,17 @@ export default function Boards() {
             <ul>
               {boards.map((board) => (
                 <li key={board.id}>
-                  <Link to={`${board.id}`}>{board.name}</Link>
+                  <Link className={styles.board} to={`${board.id}`}>
+                    {board.name}
+                  </Link>
                 </li>
               ))}
             </ul>
           </nav>
         ) : null}
-        <Link to="new">Create New Board</Link>
+        <Link className={styles.board} to="new">
+          Create New Board
+        </Link>
       </div>
       <main className={styles.main}>
         <Outlet />
