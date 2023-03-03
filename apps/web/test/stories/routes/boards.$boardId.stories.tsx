@@ -13,6 +13,9 @@ const meta: Meta<typeof TestAppStory> = {
     ...testAppStoryDefaultProps,
     url: `/boards/${firstBoard.id}`,
   },
+  parameters: {
+    chromatic: { viewports: [320, 768, 1440] },
+  },
 }
 
 export default meta
