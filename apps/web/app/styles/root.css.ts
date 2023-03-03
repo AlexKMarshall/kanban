@@ -1,5 +1,6 @@
-import { globalStyle } from '@vanilla-extract/css'
+import { globalStyle, style } from '@vanilla-extract/css'
 
+export const globalStyleWorkaround = style({})
 // CSS Reset
 globalStyle('*, *::before, *::after', {
   boxSizing: 'border-box',
