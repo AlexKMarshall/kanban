@@ -43,7 +43,7 @@ function Header({ data }: HeaderProps) {
   const { board } = data
   return (
     <header>
-      <h1>{board.name}</h1>
+      <h1 className={styles.boardName}>{board.name}</h1>
     </header>
   )
 }
