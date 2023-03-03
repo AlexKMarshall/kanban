@@ -21,7 +21,12 @@ function PageHeader() {
     )
     .at(-1)
 
-  if (!match?.handle) return <header>Default Header</header>
+  if (!match?.handle)
+    return (
+      <header>
+        <h1>Default Header</h1>
+      </header>
+    )
 
   const Header = match.handle.Header as ComponentType<{ data: any }>
   return <Header data={match.data} />

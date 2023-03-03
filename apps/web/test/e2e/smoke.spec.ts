@@ -9,5 +9,7 @@ test('Smoke test', async ({ page }) => {
 
   await page.getByRole('link', { name: /boards/i }).click()
 
-  await expect(page.getByRole('heading', { name: /boards/i })).toBeVisible()
+  await expect(
+    page.getByRole('heading', { name: /default header/i })
+  ).toBeVisible()
 })

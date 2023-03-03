@@ -30,7 +30,6 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <div>This is the root</div>
         <Outlet />
         <ScrollRestoration />
         <Scripts />
