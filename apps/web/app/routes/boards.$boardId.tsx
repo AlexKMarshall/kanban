@@ -65,7 +65,9 @@ export default function BoardIdRoute() {
               {column.tasks.length > 0 ? (
                 <ul>
                   {column.tasks.map((task) => (
-                    <li key={task.id}>{task.title}</li>
+                    <li key={task.id} className={styles.cardTitle}>
+                      {task.title}
+                    </li>
                   ))}
                 </ul>
               ) : (
