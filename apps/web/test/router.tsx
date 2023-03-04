@@ -24,12 +24,12 @@ export const createRouter = (middleware: Middleware) =>
   unstable_createRemixStub([
     {
       path: '/',
-      id: '/',
+      id: 'routes/_index',
       ...routeFromModule({ module: IndexModule, middleware }),
     },
     {
       path: '/boards',
-      id: 'boards',
+      id: 'routes/boards',
       ...routeFromModule({
         module: BoardsModule,
         middleware,
@@ -42,11 +42,11 @@ export const createRouter = (middleware: Middleware) =>
             module: BoardsIndexModule,
             middleware,
           }),
-          id: 'boards/index',
+          id: 'routes/boards._index',
         },
         {
           path: ':boardId',
-          id: 'boards/$boardId',
+          id: 'routes/boards.$boardId',
           ...routeFromModule({
             module: BoardIdModule,
             middleware,
@@ -59,14 +59,14 @@ export const createRouter = (middleware: Middleware) =>
                 module: BoardsBoardIdNewTaskModule,
                 middleware,
               }),
-              id: 'boards/$boardId/new-task',
+              id: 'routes/boards.$boardId.new-task',
             },
           ],
         },
         // @ts-expect-error types are weird, hopefully this will get fixex in remix
         {
           path: 'new',
-          id: 'boards/new',
+          id: 'routes/boards.new',
           ...routeFromModule({
             module: BoardsNewModule,
             middleware,

@@ -3,43 +3,28 @@ import { json } from '@remix-run/node'
 import { Link, Outlet, useLoaderData, useMatches } from '@remix-run/react'
 import { ComponentType } from 'react'
 import * as styles from '../styles/boards.css'
+import { z } from 'zod'
 
-export async function loader({ context }: LoaderArgs) {
+export async function loader({ params, context }: LoaderArgs) {
+  const { boardId: currentBoardId } = params
+
   const boards = await context.db.board.findMany()
+  const currentBoard =
+    boards.find((board) => board.id === currentBoardId) ?? null
 
-  return json(boards)
-}
-
-function PageHeader() {
-  const matches = useMatches()
-  const match = matches
-    .filter(
-      (match) =>
-        match.handle &&
-        'Header' in match.handle &&
-        typeof match.handle.Header === 'function'
-    )
-    .at(-1)
-
-  if (!match?.handle)
-    return (
-      <header>
-        <h1>Default Header</h1>
-      </header>
-    )
-
-  const Header = match.handle.Header as ComponentType<{ data: any }>
-  return <Header data={match.data} />
+  return json({ boards, currentBoard })
 }
 
 export default function Boards() {
-  const boards = useLoaderData<typeof loader>()
+  const { boards, currentBoard } = useLoaderData<typeof loader>()
+
+  const heading = currentBoard?.name ?? 'Default header'
 
   return (
     <div className={styles.layout}>
-      <div className={styles.header}>
-        <PageHeader />
-      </div>
+      <header className={styles.header}>
+        <h1 className={styles.boardName}>{heading}</h1>
+      </header>
       <div className={styles.nav}>
         {boards.length > 0 ? (
           <nav>
