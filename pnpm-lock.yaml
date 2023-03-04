@@ -27,7 +27,7 @@ importers:
       '@kanban/database': workspace:*
       '@kanban/eslint-config-bases': workspace:*
       '@kanban/tsconfig': workspace:*
-      '@playwright/test': 1.31.1
+      '@playwright/test': 1.31.2
       '@remix-run/css-bundle': 1.14.0
       '@remix-run/dev': 1.14.0
       '@remix-run/eslint-config': 1.14.0
@@ -89,7 +89,7 @@ importers:
       '@babel/preset-typescript': 7.21.0_@babel+core@7.21.0
       '@kanban/eslint-config-bases': link:../../packages/eslint-config-bases
       '@kanban/tsconfig': link:../../packages/tsconfig
-      '@playwright/test': 1.31.1
+      '@playwright/test': 1.31.2
       '@remix-run/dev': 1.14.0
       '@remix-run/eslint-config': 1.14.0_ezujzymwn6i6oisrjb2haixety
       '@remix-run/server-runtime': 1.14.0
@@ -3418,13 +3418,13 @@ packages:
       tiny-glob: 0.2.9
       tslib: 2.5.0
 
-  /@playwright/test/1.31.1:
-    resolution: {integrity: sha512-IsytVZ+0QLDh1Hj83XatGp/GsI1CDJWbyDaBGbainsh0p2zC7F4toUocqowmjS6sQff2NGT3D9WbDj/3K2CJiA==}
+  /@playwright/test/1.31.2:
+    resolution: {integrity: sha512-BYVutxDI4JeZKV1+ups6dt5WiqKhjBtIYowyZIJ3kBDmJgsuPKsqqKNIMFbUePLSCmp2cZu+BDL427RcNKTRYw==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
-      '@types/node': 18.14.0
-      playwright-core: 1.31.1
+      '@types/node': 18.14.4
+      playwright-core: 1.31.2
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
@@ -5252,10 +5252,6 @@ packages:
 
   /@types/node/16.18.12:
     resolution: {integrity: sha512-vzLe5NaNMjIE3mcddFVGlAXN1LEWueUsMsOJWaT6wWMJGyljHAWHznqfnKUQWGzu7TLPrGvWdNAsvQYW+C0xtw==}
-    dev: true
-
-  /@types/node/18.14.0:
-    resolution: {integrity: sha512-5EWrvLmglK+imbCJY0+INViFWUHg1AHel1sq4ZVSfdcNqGy9Edv3UB9IIzzg+xPaUcAgZYcfVs2fBcwDeZzU0A==}
     dev: true
 
   /@types/node/18.14.4:
@@ -11351,8 +11347,8 @@ packages:
       mlly: 1.1.0
       pathe: 1.1.0
 
-  /playwright-core/1.31.1:
-    resolution: {integrity: sha512-JTyX4kV3/LXsvpHkLzL2I36aCdml4zeE35x+G5aPc4bkLsiRiQshU5lWeVpHFAuC8xAcbI6FDcw/8z3q2xtJSQ==}
+  /playwright-core/1.31.2:
+    resolution: {integrity: sha512-a1dFgCNQw4vCsG7bnojZjDnPewZcw7tZUNFN0ZkcLYKj+mPmXvg4MpaaKZ5SgqPsOmqIf2YsVRkgqiRDxD+fDQ==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
