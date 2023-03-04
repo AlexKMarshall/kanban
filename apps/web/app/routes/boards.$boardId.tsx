@@ -35,23 +35,6 @@ export async function loader({ params, context }: LoaderArgs) {
   return json({ board })
 }
 
-// https://sergiodxa.com/articles/bubble-up-data-on-remix-routes#bubbling-components
-type HeaderProps = {
-  data: SerializeFrom<typeof loader>
-}
-function Header({ data }: HeaderProps) {
-  const { board } = data
-  return (
-    <header>
-      <h1 className={styles.boardName}>{board.name}</h1>
-    </header>
-  )
-}
-
-export const handle = {
-  Header,
-}
-
 export default function BoardIdRoute() {
   const { board } = useLoaderData<typeof loader>()
   return (
