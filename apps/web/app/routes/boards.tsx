@@ -2,6 +2,7 @@ import type { LoaderArgs } from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { Link, Outlet, useLoaderData } from '@remix-run/react'
 import * as styles from '../styles/boards.css'
+import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 
 export async function loader({ params, context }: LoaderArgs) {
   const { boardId: currentBoardId } = params
@@ -22,6 +23,24 @@ export default function Boards() {
     <div className={styles.layout}>
       <header className={styles.header}>
         <h1 className={styles.boardName}>{heading}</h1>
+        <NavigationMenu.Root>
+          <NavigationMenu.List>
+            <NavigationMenu.Item>
+              <NavigationMenu.Trigger>{heading}</NavigationMenu.Trigger>
+              <NavigationMenu.Content>
+                <ul>
+                  {boards.map((board) => (
+                    <NavigationMenu.Link key={board.id} asChild>
+                      <Link className={styles.board} to={`${board.id}`}>
+                        {board.name}
+                      </Link>
+                    </NavigationMenu.Link>
+                  ))}
+                </ul>
+              </NavigationMenu.Content>
+            </NavigationMenu.Item>
+          </NavigationMenu.List>
+        </NavigationMenu.Root>
       </header>
       <div className={styles.nav}>
         {boards.length > 0 ? (

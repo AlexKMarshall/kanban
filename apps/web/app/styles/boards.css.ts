@@ -44,8 +44,10 @@ export const boardName = style({
   fontSize: '1.125rem',
   fontWeight: 700,
   lineHeight: 1.25,
+  display: 'none',
   '@media': {
     'screen and (min-width: 768px)': {
+      display: 'block',
       fontSize: '1.25rem',
     },
     'screen and (min-width: 1024px)': {
