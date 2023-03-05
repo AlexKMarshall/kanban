@@ -55,3 +55,17 @@ export const boardName = style({
     },
   },
 })
+
+export const mobileNavTrigger = style({
+  fontSize: '1.125rem',
+  fontWeight: 700,
+  lineHeight: 1.25,
+  background: 'none',
+  border: 'none',
+  padding: 0,
+  '@media': {
+    'screen and (min-width: 768px)': {
+      display: 'none',
+    },
+  },
+})

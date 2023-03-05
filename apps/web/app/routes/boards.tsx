@@ -26,7 +26,9 @@ export default function Boards() {
         <NavigationMenu.Root>
           <NavigationMenu.List>
             <NavigationMenu.Item>
-              <NavigationMenu.Trigger>{heading}</NavigationMenu.Trigger>
+              <NavigationMenu.Trigger className={styles.mobileNavTrigger}>
+                {heading}
+              </NavigationMenu.Trigger>
               <NavigationMenu.Content>
                 <ul>
                   {boards.map((board) => (
