@@ -3,14 +3,13 @@ import { style } from '@vanilla-extract/css'
 export const layout = style({
   display: 'grid',
   minHeight: '100vh',
-  // gridTemplateColumns: 'auto 1fr',
   gridTemplateRows: 'auto 1fr',
   gridTemplateAreas: `"header"
                       "main"`,
   gap: '1rem',
   '@media': {
     'screen and (min-width: 768px)': {
-      gridTemplateColumns: 'auto 1fr',
+      gridTemplateColumns: 'max-content 1fr',
       gridTemplateAreas: `"logo header"
                           "nav main"`,
     },
