@@ -43,13 +43,13 @@ export default function BoardIdRoute() {
       {board.columns.length > 0 ? (
         <div className={styles.columnWrapper}>
           {board.columns.map((column) => (
-            <div key={column.id}>
+            <div key={column.id} className={styles.column}>
               <h2 className={styles.columnName}>{column.name}</h2>
               {column.tasks.length > 0 ? (
-                <ul>
+                <ul className={styles.cardList}>
                   {column.tasks.map((task) => (
-                    <li key={task.id} className={styles.cardTitle}>
-                      {task.title}
+                    <li key={task.id} className={styles.card}>
+                      <h3 className={styles.cardTitle}>{task.title}</h3>
                     </li>
                   ))}
                 </ul>
