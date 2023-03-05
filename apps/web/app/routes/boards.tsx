@@ -1,9 +1,7 @@
 import type { LoaderArgs } from '@remix-run/node'
 import { json } from '@remix-run/node'
-import { Link, Outlet, useLoaderData, useMatches } from '@remix-run/react'
-import { ComponentType } from 'react'
+import { Link, Outlet, useLoaderData } from '@remix-run/react'
 import * as styles from '../styles/boards.css'
-import { z } from 'zod'
 
 export async function loader({ params, context }: LoaderArgs) {
   const { boardId: currentBoardId } = params
