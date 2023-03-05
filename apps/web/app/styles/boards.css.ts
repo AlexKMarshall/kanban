@@ -32,6 +32,7 @@ export const nav = style({
 
 export const main = style({
   gridArea: 'main',
+  overflow: 'auto',
 })
 
 export const board = style({

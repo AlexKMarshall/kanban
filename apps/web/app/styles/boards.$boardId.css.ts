@@ -9,6 +9,7 @@ export const columnWrapper = style({
 
 export const column = style({
   width: '17.5rem',
+  flexShrink: 0,
   display: 'flex',
   flexDirection: 'column',
 })
