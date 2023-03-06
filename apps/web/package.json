@@ -19,6 +19,7 @@
   "dependencies": {
     "@kanban/clock": "workspace:*",
     "@kanban/database": "workspace:*",
+    "@radix-ui/react-dialog": "^1.0.2",
     "@radix-ui/react-navigation-menu": "1.1.1",
     "@remix-run/css-bundle": "1.14.0",
     "@remix-run/express": "1.14.0",
@@ -49,6 +50,7 @@
     "@storybook/addon-interactions": "7.0.0-beta.61",
     "@storybook/addon-links": "7.0.0-beta.61",
     "@storybook/blocks": "7.0.0-beta.61",
+    "@storybook/jest": "^0.0.10",
     "@storybook/react": "7.0.0-beta.61",
     "@storybook/react-vite": "7.0.0-beta.61",
     "@storybook/react-webpack5": "7.0.0-beta.61",

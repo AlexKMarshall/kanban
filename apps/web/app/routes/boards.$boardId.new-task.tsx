@@ -1,11 +1,14 @@
-import { Form, useActionData, useLoaderData } from '@remix-run/react'
 import {
-  ActionArgs,
-  json,
-  LoaderArgs,
-  redirect,
-} from '@remix-run/server-runtime'
+  Form,
+  useActionData,
+  useLoaderData,
+  useNavigate,
+} from '@remix-run/react'
+import type { ActionArgs, LoaderArgs } from '@remix-run/server-runtime'
+import { json, redirect } from '@remix-run/server-runtime'
 import { z } from 'zod'
+import * as styles from '../styles/boards.$boardId.new-task.css'
+import * as Dialog from '@radix-ui/react-dialog'
 
 export async function loader({ params, context }: LoaderArgs) {
   const { boardId } = params
@@ -93,52 +96,65 @@ export async function action({ params, request, context }: ActionArgs) {
 export default function BoardsBoardIdNewTaskRoute() {
   const { columns } = useLoaderData<typeof loader>()
   const error = useActionData<typeof action>()
+  const navigate = useNavigate()
 
   return (
-    <div>
-      <h2>Add new task</h2>
-      <Form method="post">
-        <label htmlFor="title">Title</label>
-        <input
-          type="text"
-          id="title"
-          name="title"
-          aria-invalid={error?.fieldErrors?.title?.length ? true : undefined}
-          aria-errormessage={
-            error?.fieldErrors?.title?.length ? 'title-error' : undefined
-          }
-        />
-        {error?.fieldErrors?.title?.length ? (
-          <ul id="title-error">
-            {error.fieldErrors.title.map((error) => (
-              <li key={error}>{error}</li>
+    <Dialog.Root
+      open={true}
+      onOpenChange={(isOpen) => {
+        if (!isOpen) {
+          navigate(-1)
+        }
+      }}
+    >
+      <Dialog.Overlay className={styles.dialogOverlay} />
+      <Dialog.Content className={styles.dialogContent}>
+        <h2>Add new task</h2>
+        <Form method="post">
+          <label htmlFor="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            aria-invalid={error?.fieldErrors?.title?.length ? true : undefined}
+            aria-errormessage={
+              error?.fieldErrors?.title?.length ? 'title-error' : undefined
+            }
+          />
+          {error?.fieldErrors?.title?.length ? (
+            <ul id="title-error">
+              {error.fieldErrors.title.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+          ) : null}
+          <label htmlFor="column">Column</label>
+          <select
+            name="columnId"
+            id="column"
+            aria-invalid={
+              error?.fieldErrors.columnId?.length ? true : undefined
+            }
+            aria-errormessage={
+              error?.fieldErrors.columnId?.length ? 'column-error' : undefined
+            }
+          >
+            {columns.map((column) => (
+              <option key={column.id} value={column.id}>
+                {column.name}
+              </option>
             ))}
-          </ul>
-        ) : null}
-        <label htmlFor="column">Column</label>
-        <select
-          name="columnId"
-          id="column"
-          aria-invalid={error?.fieldErrors.columnId?.length ? true : undefined}
-          aria-errormessage={
-            error?.fieldErrors.columnId?.length ? 'column-error' : undefined
-          }
-        >
-          {columns.map((column) => (
-            <option key={column.id} value={column.id}>
-              {column.name}
-            </option>
-          ))}
-        </select>
-        {error?.fieldErrors?.columnId?.length ? (
-          <ul id="column-error">
-            {error.fieldErrors.columnId.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
-        ) : null}
-        <button type="submit">Create task</button>
-      </Form>
-    </div>
+          </select>
+          {error?.fieldErrors?.columnId?.length ? (
+            <ul id="column-error">
+              {error.fieldErrors.columnId.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+          ) : null}
+          <button type="submit">Create task</button>
+        </Form>
+      </Dialog.Content>
+    </Dialog.Root>
   )
 }
