@@ -3,6 +3,7 @@ import { within, userEvent } from '@storybook/testing-library'
 import { fullBoardData } from '../../mocks/boards'
 
 import { TestAppStory, testAppStoryDefaultProps } from '../../TestApp'
+import { sleep } from '@kanban/clock'
 
 const [firstBoard] = fullBoardData.boards
 
@@ -26,9 +27,12 @@ export const Default: Story = {}
 export const Valid: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await userEvent.type(await canvas.findByLabelText(/title/i), 'New task')
+    const dialog = within(await canvas.findByRole('dialog'))
+
+    await sleep(1)
+    await userEvent.type(await dialog.findByLabelText(/title/i), 'New task')
     await userEvent.click(
-      await canvas.findByRole('button', { name: /create task/i })
+      await dialog.findByRole('button', { name: /create task/i })
     )
   },
 }
@@ -36,8 +40,12 @@ export const Valid: Story = {
 export const MissingTitle: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
+    const dialog = within(await canvas.findByRole('dialog'))
+
+    await sleep(1)
+
     await userEvent.click(
-      await canvas.findByRole('button', { name: /create task/i })
+      await dialog.findByRole('button', { name: /create task/i })
     )
   },
 }
