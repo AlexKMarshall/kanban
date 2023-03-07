@@ -69,7 +69,7 @@ importers:
       storybook: 7.0.0-beta.62
       typescript: 4.9.5
       vite: 4.1.4
-      zod: 3.21.2
+      zod: 3.21.4
     dependencies:
       '@kanban/clock': link:../../packages/clock
       '@kanban/database': link:../../packages/database
@@ -87,7 +87,7 @@ importers:
       morgan: 1.10.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      zod: 3.21.2
+      zod: 3.21.4
     devDependencies:
       '@babel/preset-env': 7.20.2_@babel+core@7.21.0
       '@babel/preset-react': 7.18.6_@babel+core@7.21.0
@@ -12929,8 +12929,8 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  /zod/3.21.2:
-    resolution: {integrity: sha512-0Ygy2/IZNIxHterZdHjE5Vb8hp1fUHJD/BGvSHj8QJx+UipEVNvo9WLchoyBpz5JIaN6KmdGDGYdloGzpFK98g==}
+  /zod/3.21.4:
+    resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
     dev: false
 
   /zwitch/2.0.4:
