@@ -49,7 +49,7 @@ importers:
       '@storybook/testing-library': 0.0.14-next.1
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
-      '@vanilla-extract/css': 1.9.5
+      '@vanilla-extract/css': 1.10.0
       '@vanilla-extract/vite-plugin': 3.8.0
       '@vitejs/plugin-react': 3.1.0
       compression: 1.7.4
@@ -110,7 +110,7 @@ importers:
       '@storybook/testing-library': 0.0.14-next.1
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
-      '@vanilla-extract/css': 1.9.5
+      '@vanilla-extract/css': 1.10.0
       '@vanilla-extract/vite-plugin': 3.8.0_vite@4.1.4
       '@vitejs/plugin-react': 3.1.0_vite@4.1.4
       dotenv: 16.0.3
@@ -4687,8 +4687,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@vanilla-extract/css/1.9.5:
-    resolution: {integrity: sha512-aVSv6q24zelKRtWx/l9yshU3gD1uCDMZ2ZGcIiYnAcPfyLryrG/1X5DxtyiPKcyI/hZWoteHofsN//2q9MvzOA==}
+  /@vanilla-extract/css/1.10.0:
+    resolution: {integrity: sha512-s/EFfLDKbU1c2jnELNl+l14AufvIyryDh09ZZxRRqKjRKitiKvEjoiUy964pGKmfHngc9O0mkbzqrbhWaH+96Q==}
     dependencies:
       '@emotion/hash': 0.9.0
       '@vanilla-extract/private': 1.0.3
@@ -4708,7 +4708,7 @@ packages:
       '@babel/core': 7.21.0
       '@babel/plugin-syntax-typescript': 7.20.0_@babel+core@7.21.0
       '@vanilla-extract/babel-plugin-debug-ids': 1.0.1
-      '@vanilla-extract/css': 1.9.5
+      '@vanilla-extract/css': 1.10.0
       esbuild: 0.16.17
       eval: 0.1.6
       find-up: 5.0.0
