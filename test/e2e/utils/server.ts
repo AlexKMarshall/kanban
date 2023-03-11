@@ -33,12 +33,9 @@ export async function startServer({
       if (dataString.includes('Express server listening on port')) {
         return resolve({
           async stop() {
-            console.log('in stop method')
             if (serverProcess.killed) {
-              console.log('server already killed')
               return
             }
-            console.log('killing server')
             serverProcess.kill('SIGINT')
           },
           port,
