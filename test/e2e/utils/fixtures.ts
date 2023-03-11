@@ -1,5 +1,9 @@
 import { test as base, expect } from '@playwright/test'
-import { prepareDatabase, removeDatabase } from './database.js'
+import {
+  prepareDatabase,
+  removeDatabase,
+  truncateDatabase,
+} from './database.js'
 import { startServer } from './server.js'
 
 type WorkerFixtures = {
@@ -29,6 +33,10 @@ const test = base.extend<{}, WorkerFixtures>({
     },
     { scope: 'worker', auto: true },
   ],
+  page: async ({ page: pageBase, database }, use) => {
+    await truncateDatabase(database.client)
+    await use(pageBase)
+  },
 })
 
 export { test, expect }

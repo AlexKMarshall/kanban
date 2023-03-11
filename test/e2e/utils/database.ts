@@ -41,6 +41,15 @@ export async function prepareDatabase() {
   return { databaseUrl, client }
 }
 
+export async function truncateDatabase(db: PrismaClient) {
+  const tables: { name: string }[] =
+    await db.$queryRaw`SELECT name FROM sqlite_schema WHERE type = 'table'`
+
+  await Promise.all(
+    tables.map(({ name }) => db.$executeRawUnsafe(`DELETE FROM ${name}`))
+  )
+}
+
 export async function removeDatabase(databaseUrl: string) {
   const relativePath = url.fileURLToPath(databaseUrl)
   const fullPath = path.join(
