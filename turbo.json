@@ -36,6 +36,9 @@
       "outputs": ["coverage/**"],
       "env": ["STORYBOOK_CONFIG_DIR", "TARGET_URL", "TEST_BROWSERS"]
     },
+    "test": {
+      "dependsOn": ["^build"]
+    },
     "test:e2e": {
       "dependsOn": ["build"]
     }
