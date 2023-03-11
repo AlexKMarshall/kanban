@@ -1,17 +1,23 @@
 import { test as base, expect } from '@playwright/test'
+import { fullBoardData } from '../mocks/boards'
 import {
   prepareDatabase,
   removeDatabase,
+  seedDatabase,
   truncateDatabase,
-} from './database.js'
-import { startServer } from './server.js'
+} from './database'
+import { startServer } from './server'
+
+type TestFixtures = {
+  seedData: typeof fullBoardData
+}
 
 type WorkerFixtures = {
   database: Awaited<ReturnType<typeof prepareDatabase>>
   server: { port: number }
 }
 
-const test = base.extend<{}, WorkerFixtures>({
+const test = base.extend<TestFixtures, WorkerFixtures>({
   database: [
     async ({}, use) => {
       const database = await prepareDatabase()
@@ -33,8 +39,12 @@ const test = base.extend<{}, WorkerFixtures>({
     },
     { scope: 'worker', auto: true },
   ],
-  page: async ({ page: pageBase, database }, use) => {
+  seedData: async ({}, use) => {
+    await use(fullBoardData)
+  },
+  page: async ({ page: pageBase, seedData, database }, use) => {
     await truncateDatabase(database.client)
+    await seedDatabase(database.client, seedData)
     await use(pageBase)
   },
 })
