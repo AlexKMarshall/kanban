@@ -157,69 +157,73 @@ export default function BoardsBoardIdNewTaskRoute() {
                 exit={{ opacity: 0 }}
               />
             </Dialog.Overlay>
-            <Dialog.Content className={styles.dialogContent} asChild>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <Dialog.Title asChild>
-                  <h2>Add new task</h2>
-                </Dialog.Title>
-                <Form method="post">
-                  <label htmlFor="title">Title</label>
-                  <input
-                    type="text"
-                    id="title"
-                    name="title"
-                    aria-invalid={
-                      actionData?.fieldErrors?.title?.length ? true : undefined
-                    }
-                    aria-errormessage={
-                      actionData?.fieldErrors?.title?.length
-                        ? 'title-error'
-                        : undefined
-                    }
-                  />
-                  {actionData?.fieldErrors?.title?.length ? (
-                    <ul id="title-error">
-                      {actionData.fieldErrors.title.map((error) => (
-                        <li key={error}>{error}</li>
+            <div className={styles.center}>
+              <Dialog.Content className={styles.dialogContent} asChild>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <Dialog.Title asChild>
+                    <h2>Add new task</h2>
+                  </Dialog.Title>
+                  <Form method="post">
+                    <label htmlFor="title">Title</label>
+                    <input
+                      type="text"
+                      id="title"
+                      name="title"
+                      aria-invalid={
+                        actionData?.fieldErrors?.title?.length
+                          ? true
+                          : undefined
+                      }
+                      aria-errormessage={
+                        actionData?.fieldErrors?.title?.length
+                          ? 'title-error'
+                          : undefined
+                      }
+                    />
+                    {actionData?.fieldErrors?.title?.length ? (
+                      <ul id="title-error">
+                        {actionData.fieldErrors.title.map((error) => (
+                          <li key={error}>{error}</li>
+                        ))}
+                      </ul>
+                    ) : null}
+                    <label htmlFor="column">Column</label>
+                    <select
+                      name="columnId"
+                      id="column"
+                      aria-invalid={
+                        actionData?.fieldErrors.columnId?.length
+                          ? true
+                          : undefined
+                      }
+                      aria-errormessage={
+                        actionData?.fieldErrors.columnId?.length
+                          ? 'column-error'
+                          : undefined
+                      }
+                    >
+                      {columns.map((column) => (
+                        <option key={column.id} value={column.id}>
+                          {column.name}
+                        </option>
                       ))}
-                    </ul>
-                  ) : null}
-                  <label htmlFor="column">Column</label>
-                  <select
-                    name="columnId"
-                    id="column"
-                    aria-invalid={
-                      actionData?.fieldErrors.columnId?.length
-                        ? true
-                        : undefined
-                    }
-                    aria-errormessage={
-                      actionData?.fieldErrors.columnId?.length
-                        ? 'column-error'
-                        : undefined
-                    }
-                  >
-                    {columns.map((column) => (
-                      <option key={column.id} value={column.id}>
-                        {column.name}
-                      </option>
-                    ))}
-                  </select>
-                  {actionData?.fieldErrors?.columnId?.length ? (
-                    <ul id="column-error">
-                      {actionData.fieldErrors.columnId.map((error) => (
-                        <li key={error}>{error}</li>
-                      ))}
-                    </ul>
-                  ) : null}
-                  <button type="submit">Create task</button>
-                </Form>
-              </motion.div>
-            </Dialog.Content>
+                    </select>
+                    {actionData?.fieldErrors?.columnId?.length ? (
+                      <ul id="column-error">
+                        {actionData.fieldErrors.columnId.map((error) => (
+                          <li key={error}>{error}</li>
+                        ))}
+                      </ul>
+                    ) : null}
+                    <button type="submit">Create task</button>
+                  </Form>
+                </motion.div>
+              </Dialog.Content>
+            </div>
           </Dialog.Portal>
         )}
       </AnimatePresence>
