@@ -42,6 +42,9 @@ const test = base.extend<TestFixtures, WorkerFixtures>({
   seedData: async ({}, use) => {
     await use(fullBoardData)
   },
+  baseURL: async ({ server }, use) => {
+    await use(`http://localhost:${server.port}`)
+  },
   page: async ({ page: pageBase, seedData, database }, use) => {
     await truncateDatabase(database.client)
     await seedDatabase(database.client, seedData)
