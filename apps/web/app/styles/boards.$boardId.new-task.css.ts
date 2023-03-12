@@ -6,9 +6,14 @@ export const dialogOverlay = style({
   backgroundColor: 'hsl(0 0% 0% / 0.5)',
 })
 
+export const center = style({
+  position: 'fixed',
+  inset: 0,
+  display: 'grid',
+  placeContent: 'center',
+})
+
 export const dialogContent = style({
   backgroundColor: 'white',
-  position: 'fixed',
-  top: 0,
   padding: '1rem',
 })
