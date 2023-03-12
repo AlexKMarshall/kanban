@@ -42,6 +42,9 @@ export default function Boards() {
             </NavigationMenu.Item>
           </NavigationMenu.List>
         </NavigationMenu.Root>
+        {currentBoard ? (
+          <Link to={`${currentBoard.id}/new-task`}>Add new task</Link>
+        ) : null}
       </header>
       <div className={styles.nav}>
         {boards.length > 0 ? (
