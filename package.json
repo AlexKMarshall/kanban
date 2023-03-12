@@ -13,7 +13,7 @@
     "typecheck": "turbo run typecheck",
     "lint": "TIMING=1 turbo run lint",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md}\" --ignore-path .gitignore",
-    "ci": "turbo run build prettier:check lint typecheck storybook:coverage test:e2e"
+    "ci": "turbo run build prettier:check lint typecheck storybook:coverage test"
   },
   "devDependencies": {
     "@kanban/eslint-config-bases": "workspace:*",
