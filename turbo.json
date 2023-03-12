@@ -37,7 +37,8 @@
       "env": ["STORYBOOK_CONFIG_DIR", "TARGET_URL", "TEST_BROWSERS"]
     },
     "test": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "outputs": ["playwright-report"]
     },
     "test:e2e": {
       "dependsOn": ["build"]
