@@ -1,6 +1,6 @@
 import type { LoaderArgs, SerializeFrom } from '@remix-run/node'
 import { json } from '@remix-run/node'
-import { Outlet, useLoaderData } from '@remix-run/react'
+import { Outlet, useLoaderData, useMatches } from '@remix-run/react'
 import * as styles from '../styles/boards.$boardId.css'
 
 export async function loader({ params, context }: LoaderArgs) {
@@ -33,6 +33,17 @@ export async function loader({ params, context }: LoaderArgs) {
   }
 
   return json({ board })
+}
+
+export function useCurrentBoardMatchData():
+  | SerializeFrom<typeof loader>
+  | undefined {
+  const matches = useMatches()
+  const currentBoardMatch = matches.find(
+    (match) => match.id === 'routes/boards.$boardId'
+  )
+
+  return currentBoardMatch?.data
 }
 
 export default function BoardIdRoute() {

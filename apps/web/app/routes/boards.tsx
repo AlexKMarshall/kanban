@@ -3,19 +3,18 @@ import { json } from '@remix-run/node'
 import { Link, Outlet, useLoaderData } from '@remix-run/react'
 import * as styles from '../styles/boards.css'
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
+import { useCurrentBoardMatchData } from './boards.$boardId'
 
-export async function loader({ params, context }: LoaderArgs) {
-  const { boardId: currentBoardId } = params
-
+export async function loader({ context }: LoaderArgs) {
   const boards = await context.db.board.findMany()
-  const currentBoard =
-    boards.find((board) => board.id === currentBoardId) ?? null
 
-  return json({ boards, currentBoard })
+  return json({ boards })
 }
 
 export default function Boards() {
-  const { boards, currentBoard } = useLoaderData<typeof loader>()
+  const { boards } = useLoaderData<typeof loader>()
+  const currentBoardMatchData = useCurrentBoardMatchData()
+  const currentBoard = currentBoardMatchData?.board
 
   const heading = currentBoard?.name ?? 'Default header'
 
@@ -43,6 +42,9 @@ export default function Boards() {
             </NavigationMenu.Item>
           </NavigationMenu.List>
         </NavigationMenu.Root>
+        {currentBoard ? (
+          <Link to={`${currentBoard.id}/new-task`}>Add new task</Link>
+        ) : null}
       </header>
       <div className={styles.nav}>
         {boards.length > 0 ? (

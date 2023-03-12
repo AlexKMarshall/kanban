@@ -109,7 +109,9 @@ export default function BoardsBoardIdNewTaskRoute() {
     >
       <Dialog.Overlay className={styles.dialogOverlay} />
       <Dialog.Content className={styles.dialogContent}>
-        <h2>Add new task</h2>
+        <Dialog.Title asChild>
+          <h2>Add new task</h2>
+        </Dialog.Title>
         <Form method="post">
           <label htmlFor="title">Title</label>
           <input

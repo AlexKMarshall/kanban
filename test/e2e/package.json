@@ -1,0 +1,17 @@
+{
+  "name": "@kanban-test/e2e",
+  "scripts": {
+    "start:server": "pnpm --filter web start",
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "web": "workspace:*"
+  },
+  "devDependencies": {
+    "@kanban/database": "workspace:*",
+    "@kanban/tsconfig": "workspace:*",
+    "@playwright/test": "1.31.2",
+    "@types/node": "18.15.0",
+    "typescript": "4.9.5"
+  }
+}

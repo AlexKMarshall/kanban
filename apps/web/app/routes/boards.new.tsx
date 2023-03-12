@@ -1,6 +1,7 @@
 import { Response } from '@remix-run/node'
 import { Form, useActionData } from '@remix-run/react'
-import { ActionArgs, json, redirect } from '@remix-run/server-runtime'
+import type { ActionArgs } from '@remix-run/server-runtime'
+import { json, redirect } from '@remix-run/server-runtime'
 import { z } from 'zod'
 
 const newBoardBasicTypesSchema = z.object({
@@ -69,9 +70,9 @@ export default function BoardsNewRoute() {
           }
         />
         {error?.fieldErrors.name?.length && (
-          <div id="name-error">
+          <div id="name-error" role="alert">
             {error.fieldErrors.name.map((message) => (
-              <p key={message}>{message}</p>
+              <span key={message}>{message}</span>
             ))}
           </div>
         )}
