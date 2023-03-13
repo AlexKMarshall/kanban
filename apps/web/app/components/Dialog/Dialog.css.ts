@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css'
 
-export const dialogOverlay = style({
+export const overlay = style({
   position: 'fixed',
   inset: 0,
   backgroundColor: 'hsl(0 0% 0% / 0.5)',
@@ -13,7 +13,7 @@ export const center = style({
   placeContent: 'center',
 })
 
-export const dialogContent = style({
+export const content = style({
   backgroundColor: 'white',
   padding: '1rem',
 })

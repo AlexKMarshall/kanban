@@ -6,12 +6,10 @@ import {
   useNavigation,
 } from '@remix-run/react'
 import type { ActionArgs, LoaderArgs } from '@remix-run/server-runtime'
-import { json, redirect } from '@remix-run/server-runtime'
+import { json } from '@remix-run/server-runtime'
 import { z } from 'zod'
-import * as styles from '../styles/boards.$boardId.new-task.css'
-import * as Dialog from '@radix-ui/react-dialog'
-import { useEffect, useState, useTransition } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { Dialog } from '../components/Dialog'
+import { useEffect, useState } from 'react'
 
 export async function loader({ params, context }: LoaderArgs) {
   const { boardId } = params
@@ -146,87 +144,60 @@ export default function BoardsBoardIdNewTaskRoute() {
   }, [open, actionData, navigation.state, closeModal])
 
   return (
-    <Dialog.Root open={open} onOpenChange={setOpen}>
-      <AnimatePresence onExitComplete={redirect}>
-        {open && (
-          <Dialog.Portal forceMount>
-            <Dialog.Overlay className={styles.dialogOverlay} asChild>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              />
-            </Dialog.Overlay>
-            <div className={styles.center}>
-              <Dialog.Content className={styles.dialogContent} asChild>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <Dialog.Title asChild>
-                    <h2>Add new task</h2>
-                  </Dialog.Title>
-                  <Form method="post">
-                    <label htmlFor="title">Title</label>
-                    <input
-                      type="text"
-                      id="title"
-                      name="title"
-                      aria-invalid={
-                        actionData?.fieldErrors?.title?.length
-                          ? true
-                          : undefined
-                      }
-                      aria-errormessage={
-                        actionData?.fieldErrors?.title?.length
-                          ? 'title-error'
-                          : undefined
-                      }
-                    />
-                    {actionData?.fieldErrors?.title?.length ? (
-                      <ul id="title-error">
-                        {actionData.fieldErrors.title.map((error) => (
-                          <li key={error}>{error}</li>
-                        ))}
-                      </ul>
-                    ) : null}
-                    <label htmlFor="column">Column</label>
-                    <select
-                      name="columnId"
-                      id="column"
-                      aria-invalid={
-                        actionData?.fieldErrors.columnId?.length
-                          ? true
-                          : undefined
-                      }
-                      aria-errormessage={
-                        actionData?.fieldErrors.columnId?.length
-                          ? 'column-error'
-                          : undefined
-                      }
-                    >
-                      {columns.map((column) => (
-                        <option key={column.id} value={column.id}>
-                          {column.name}
-                        </option>
-                      ))}
-                    </select>
-                    {actionData?.fieldErrors?.columnId?.length ? (
-                      <ul id="column-error">
-                        {actionData.fieldErrors.columnId.map((error) => (
-                          <li key={error}>{error}</li>
-                        ))}
-                      </ul>
-                    ) : null}
-                    <button type="submit">Create task</button>
-                  </Form>
-                </motion.div>
-              </Dialog.Content>
-            </div>
-          </Dialog.Portal>
-        )}
-      </AnimatePresence>
-    </Dialog.Root>
+    <Dialog open={open} onOpenChange={setOpen} onCloseComplete={redirect}>
+      <Dialog.Content>
+        <Dialog.Title asChild>
+          <h2>Add new task</h2>
+        </Dialog.Title>
+        <Form method="post">
+          <label htmlFor="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            aria-invalid={
+              actionData?.fieldErrors?.title?.length ? true : undefined
+            }
+            aria-errormessage={
+              actionData?.fieldErrors?.title?.length ? 'title-error' : undefined
+            }
+          />
+          {actionData?.fieldErrors?.title?.length ? (
+            <ul id="title-error">
+              {actionData.fieldErrors.title.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+          ) : null}
+          <label htmlFor="column">Column</label>
+          <select
+            name="columnId"
+            id="column"
+            aria-invalid={
+              actionData?.fieldErrors.columnId?.length ? true : undefined
+            }
+            aria-errormessage={
+              actionData?.fieldErrors.columnId?.length
+                ? 'column-error'
+                : undefined
+            }
+          >
+            {columns.map((column) => (
+              <option key={column.id} value={column.id}>
+                {column.name}
+              </option>
+            ))}
+          </select>
+          {actionData?.fieldErrors?.columnId?.length ? (
+            <ul id="column-error">
+              {actionData.fieldErrors.columnId.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+          ) : null}
+          <button type="submit">Create task</button>
+        </Form>
+      </Dialog.Content>
+    </Dialog>
   )
 }
