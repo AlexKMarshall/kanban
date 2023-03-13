@@ -2,6 +2,7 @@ import type { LoaderArgs, SerializeFrom } from '@remix-run/node'
 import { json } from '@remix-run/node'
 import { Outlet, useLoaderData, useMatches } from '@remix-run/react'
 import * as styles from '../styles/boards.$boardId.css'
+import { Button } from '../components/Button'
 
 export async function loader({ params, context }: LoaderArgs) {
   const { boardId } = params
@@ -71,7 +72,7 @@ export default function BoardIdRoute() {
           ))}
         </div>
       ) : (
-        <p>Add a column</p>
+        <Button>Add a column</Button>
       )}
     </div>
   )
