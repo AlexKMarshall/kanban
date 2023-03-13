@@ -9,6 +9,7 @@ import {
 } from '@remix-run/react'
 import { cssBundleHref } from '@remix-run/css-bundle'
 import './styles/root.css'
+import { AnimationProvider } from './components/Animation'
 
 export const links: LinksFunction = () => {
   return [
@@ -36,7 +37,9 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <AnimationProvider>
+          <Outlet />
+        </AnimationProvider>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
