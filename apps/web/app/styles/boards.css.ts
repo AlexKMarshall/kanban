@@ -4,8 +4,8 @@ export const layout = style({
   display: 'grid',
   minHeight: '100vh',
   gridTemplateRows: 'auto 1fr',
-  gridTemplateAreas: `"header"
-                      "main"`,
+  gridTemplateAreas: `"logo header"
+                      "main main"`,
   gap: '1rem',
   '@media': {
     'screen and (min-width: 768px)': {
@@ -14,6 +14,10 @@ export const layout = style({
                           "nav main"`,
     },
   },
+})
+
+export const logo = style({
+  gridArea: 'logo',
 })
 
 export const header = style({
