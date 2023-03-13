@@ -6,6 +6,7 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { useCurrentBoardMatchData } from './boards.$boardId'
 import logoMobile from '../assets/logo-mobile.svg'
 import logoDesktop from '../assets/logo-dark.svg'
+import { useState } from 'react'
 
 export async function loader({ context }: LoaderArgs) {
   const boards = await context.db.board.findMany()
@@ -17,11 +18,14 @@ export default function Boards() {
   const { boards } = useLoaderData<typeof loader>()
   const currentBoardMatchData = useCurrentBoardMatchData()
   const currentBoard = currentBoardMatchData?.board
-
   const heading = currentBoard?.name ?? 'Default header'
 
+  const [isNavOpen, setIsNavOpen] = useState(true)
+
+  const toggleNav = () => setIsNavOpen((v) => !v)
+
   return (
-    <div className={styles.layout}>
+    <div className={styles.layout[isNavOpen ? 'navOpen' : 'navClosed']}>
       <div className={styles.logo}>
         <picture>
           <source media="(min-width: 768px)" srcSet={logoDesktop} />
@@ -30,6 +34,7 @@ export default function Boards() {
       </div>
       <header className={styles.header}>
         <h1 className={styles.boardName}>{heading}</h1>
+        <button onClick={toggleNav}>Toggle nav</button>
         <NavigationMenu.Root>
           <NavigationMenu.List>
             <NavigationMenu.Item>

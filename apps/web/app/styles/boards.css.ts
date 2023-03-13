@@ -1,6 +1,6 @@
-import { style } from '@vanilla-extract/css'
+import { style, styleVariants } from '@vanilla-extract/css'
 
-export const layout = style({
+const layoutBase = style({
   display: 'grid',
   minHeight: '100vh',
   gridTemplateColumns: 'max-content 1fr',
@@ -8,12 +8,31 @@ export const layout = style({
   gridTemplateAreas: `"logo header"
                       "main main"`,
   gap: '1rem',
-  '@media': {
-    'screen and (min-width: 768px)': {
-      gridTemplateAreas: `"logo header"
-                          "nav main"`,
+})
+
+export const layout = styleVariants({
+  navOpen: [
+    layoutBase,
+    {
+      '@media': {
+        'screen and (min-width: 768px)': {
+          gridTemplateAreas: `"logo header"
+                            "nav main"`,
+        },
+      },
     },
-  },
+  ],
+  navClosed: [
+    layoutBase,
+    {
+      '@media': {
+        'screen and (min-width: 768px)': {
+          gridTemplateAreas: `"logo header"
+                            "main main"`,
+        },
+      },
+    },
+  ],
 })
 
 export const logo = style({
