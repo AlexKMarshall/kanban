@@ -7,7 +7,13 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: ['tsconfig.json'],
   },
-  ignorePatterns: ['**/node_modules', 'build', 'public/build'],
+  ignorePatterns: [
+    '**/node_modules',
+    'build',
+    'public/build',
+    'storybook-static',
+    'playwright-report',
+  ],
   extends: [
     '@kanban/eslint-config-bases/regex',
     '@kanban/eslint-config-bases/rtl',

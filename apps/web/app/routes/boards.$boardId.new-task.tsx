@@ -87,7 +87,7 @@ export async function action({ params, request, context }: ActionArgs) {
     })
   }
 
-  const task = await context.db.task.create({
+  await context.db.task.create({
     data: {
       title: parsedForm.data.title,
       column: {
@@ -129,19 +129,15 @@ export default function BoardsBoardIdNewTaskRoute() {
     return navigate(-1)
   }
 
-  function closeModal() {
-    setOpen(false)
-  }
-
   useEffect(() => {
     // close the modal if submission was successful
     // wait for navigation state to be idle, this means the loaders will have re-run
     // and we can safely close the modal, triggering the exit animation
     // When the exit completes we navigate back to the board
     if (open && actionData?.isSuccess && navigation.state === 'idle') {
-      closeModal()
+      setOpen(false)
     }
-  }, [open, actionData, navigation.state, closeModal])
+  }, [open, actionData, navigation.state])
 
   return (
     <Dialog open={open} onOpenChange={setOpen} onCloseComplete={redirect}>

@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/react'
+import type { Meta } from '@storybook/react'
 import { Dialog as DialogComponent } from './Dialog'
 
 export default {

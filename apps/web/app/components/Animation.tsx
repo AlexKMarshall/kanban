@@ -1,10 +1,11 @@
-import { createContext, ReactNode, useContext } from 'react'
+import type { ReactNode } from 'react'
+import { createContext, useContext } from 'react'
 
-type AnimationContext = {
+type AnimationContextType = {
   disableAnimations?: boolean
 }
 
-const AnimationContext = createContext<AnimationContext | null>(null)
+const AnimationContext = createContext<AnimationContextType | null>(null)
 
 export function useAnimation() {
   const context = useContext(AnimationContext)
@@ -16,7 +17,7 @@ export function useAnimation() {
 
 type AnimationProviderProps = {
   children: ReactNode
-} & AnimationContext
+} & AnimationContextType
 export function AnimationProvider({
   disableAnimations,
   children,
