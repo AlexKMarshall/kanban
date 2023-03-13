@@ -1,6 +1,7 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ReactNode } from 'react'
+import { useAnimation } from '../Animation'
 import * as styles from './Dialog.css'
 
 type DialogProps = {
@@ -16,6 +17,7 @@ export function Dialog({
   onCloseComplete,
   children,
 }: DialogProps) {
+  const { disableAnimations } = useAnimation()
   return (
     <RadixDialog.Root open={open} onOpenChange={onOpenChange}>
       <AnimatePresence onExitComplete={onCloseComplete}>
@@ -23,9 +25,17 @@ export function Dialog({
           <RadixDialog.Portal forceMount>
             <RadixDialog.Overlay className={styles.overlay} asChild>
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                initial={{
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: 1,
+                  transition: { duration: disableAnimations ? 0 : undefined },
+                }}
+                exit={{
+                  opacity: 0,
+                  transition: { duration: disableAnimations ? 0 : undefined },
+                }}
               />
             </RadixDialog.Overlay>
             <div className={styles.center}>{children}</div>
@@ -37,12 +47,19 @@ export function Dialog({
 }
 
 function DropdownContent({ children }: { children: ReactNode }) {
+  const { disableAnimations } = useAnimation()
   return (
     <RadixDialog.Content className={styles.content} asChild>
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          transition: { duration: disableAnimations ? 0 : undefined },
+        }}
+        exit={{
+          opacity: 0,
+          transition: { duration: disableAnimations ? 0 : undefined },
+        }}
       >
         {children}
       </motion.div>
