@@ -3,17 +3,21 @@ import { style } from '@vanilla-extract/css'
 export const layout = style({
   display: 'grid',
   minHeight: '100vh',
+  gridTemplateColumns: 'max-content 1fr',
   gridTemplateRows: 'auto 1fr',
-  gridTemplateAreas: `"header"
-                      "main"`,
+  gridTemplateAreas: `"logo header"
+                      "main main"`,
   gap: '1rem',
   '@media': {
     'screen and (min-width: 768px)': {
-      gridTemplateColumns: 'max-content 1fr',
       gridTemplateAreas: `"logo header"
                           "nav main"`,
     },
   },
+})
+
+export const logo = style({
+  gridArea: 'logo',
 })
 
 export const header = style({
