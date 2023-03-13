@@ -5,6 +5,7 @@ import * as styles from '../styles/boards.css'
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { useCurrentBoardMatchData } from './boards.$boardId'
 import logoMobile from '../assets/logo-mobile.svg'
+import logoDesktop from '../assets/logo-dark.svg'
 
 export async function loader({ context }: LoaderArgs) {
   const boards = await context.db.board.findMany()
@@ -22,7 +23,10 @@ export default function Boards() {
   return (
     <div className={styles.layout}>
       <div className={styles.logo}>
-        <img src={logoMobile} alt="" />
+        <picture>
+          <source media="(min-width: 768px)" srcSet={logoDesktop} />
+          <img src={logoMobile} alt="" />
+        </picture>
       </div>
       <header className={styles.header}>
         <h1 className={styles.boardName}>{heading}</h1>
