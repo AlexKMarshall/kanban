@@ -8,5 +8,10 @@
     ":automergePatch",
     ":automergeTypes",
     ":automergeLinters"
+  ],
+  "packageRules": [
+    {
+      "stabilityDays": 7
+    }
   ]
 }
