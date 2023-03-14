@@ -49,6 +49,11 @@ export const sidebar = style({
     'screen and (min-width: 768px)': {
       display: 'block',
       gridArea: 'sidebar',
+      selectors: {
+        '[aria-expanded="false"] + &': {
+          display: 'none',
+        },
+      },
     },
   },
 })
