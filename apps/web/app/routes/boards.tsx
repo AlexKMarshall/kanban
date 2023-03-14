@@ -6,6 +6,7 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { useCurrentBoardMatchData } from './boards.$boardId'
 import logoMobile from '../assets/logo-mobile.svg'
 import logoDesktop from '../assets/logo-dark.svg'
+import { useState } from 'react'
 
 export async function loader({ context }: LoaderArgs) {
   const boards = await context.db.board.findMany()
@@ -17,11 +18,14 @@ export default function Boards() {
   const { boards } = useLoaderData<typeof loader>()
   const currentBoardMatchData = useCurrentBoardMatchData()
   const currentBoard = currentBoardMatchData?.board
-
   const heading = currentBoard?.name ?? 'Default header'
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
+
+  const toggleSidebar = () => setIsSidebarOpen((v) => !v)
+
   return (
-    <div className={styles.layout}>
+    <div className={styles.layout[isSidebarOpen ? 'navOpen' : 'navClosed']}>
       <div className={styles.logo}>
         <picture>
           <source media="(min-width: 768px)" srcSet={logoDesktop} />
@@ -54,7 +58,15 @@ export default function Boards() {
           <Link to={`${currentBoard.id}/new-task`}>Add new task</Link>
         ) : null}
       </header>
-      <div className={styles.nav}>
+      <button
+        onClick={toggleSidebar}
+        aria-controls="sidebar"
+        aria-expanded={isSidebarOpen}
+        className={styles.showSidebarButton}
+      >
+        Show sidebar
+      </button>
+      <aside className={styles.sidebar} id="sidebar">
         {boards.length > 0 ? (
           <nav>
             <ul>
@@ -71,7 +83,8 @@ export default function Boards() {
         <Link className={styles.board} to="new">
           Create New Board
         </Link>
-      </div>
+        <button onClick={toggleSidebar}>Hide sidebar</button>
+      </aside>
       <main className={styles.main}>
         <Outlet />
       </main>

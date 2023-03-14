@@ -1,6 +1,6 @@
-import { style } from '@vanilla-extract/css'
+import { style, styleVariants } from '@vanilla-extract/css'
 
-export const layout = style({
+const layoutBase = style({
   display: 'grid',
   minHeight: '100vh',
   gridTemplateColumns: 'max-content 1fr',
@@ -8,12 +8,31 @@ export const layout = style({
   gridTemplateAreas: `"logo header"
                       "main main"`,
   gap: '1rem',
-  '@media': {
-    'screen and (min-width: 768px)': {
-      gridTemplateAreas: `"logo header"
-                          "nav main"`,
+})
+
+export const layout = styleVariants({
+  navOpen: [
+    layoutBase,
+    {
+      '@media': {
+        'screen and (min-width: 768px)': {
+          gridTemplateAreas: `"logo header"
+                            "sidebar main"`,
+        },
+      },
     },
-  },
+  ],
+  navClosed: [
+    layoutBase,
+    {
+      '@media': {
+        'screen and (min-width: 768px)': {
+          gridTemplateAreas: `"logo header"
+                            "main main"`,
+        },
+      },
+    },
+  ],
 })
 
 export const logo = style({
@@ -24,12 +43,17 @@ export const header = style({
   gridArea: 'header',
 })
 
-export const nav = style({
+export const sidebar = style({
   display: 'none',
   '@media': {
     'screen and (min-width: 768px)': {
       display: 'block',
-      gridArea: 'nav',
+      gridArea: 'sidebar',
+      selectors: {
+        '[aria-expanded="false"] + &': {
+          display: 'none',
+        },
+      },
     },
   },
 })
@@ -69,6 +93,17 @@ export const mobileNavTrigger = style({
   padding: 0,
   '@media': {
     'screen and (min-width: 768px)': {
+      display: 'none',
+    },
+  },
+})
+
+export const showSidebarButton = style({
+  position: 'fixed',
+  bottom: '3rem',
+  left: '1rem',
+  selectors: {
+    '&[aria-expanded="true"]': {
       display: 'none',
     },
   },
