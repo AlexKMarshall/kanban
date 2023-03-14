@@ -20,12 +20,12 @@ export default function Boards() {
   const currentBoard = currentBoardMatchData?.board
   const heading = currentBoard?.name ?? 'Default header'
 
-  const [isNavOpen, setIsNavOpen] = useState(true)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
 
-  const toggleNav = () => setIsNavOpen((v) => !v)
+  const toggleSidebar = () => setIsSidebarOpen((v) => !v)
 
   return (
-    <div className={styles.layout[isNavOpen ? 'navOpen' : 'navClosed']}>
+    <div className={styles.layout[isSidebarOpen ? 'navOpen' : 'navClosed']}>
       <div className={styles.logo}>
         <picture>
           <source media="(min-width: 768px)" srcSet={logoDesktop} />
@@ -34,7 +34,6 @@ export default function Boards() {
       </div>
       <header className={styles.header}>
         <h1 className={styles.boardName}>{heading}</h1>
-        <button onClick={toggleNav}>Toggle nav</button>
         <NavigationMenu.Root>
           <NavigationMenu.List>
             <NavigationMenu.Item>
@@ -59,7 +58,15 @@ export default function Boards() {
           <Link to={`${currentBoard.id}/new-task`}>Add new task</Link>
         ) : null}
       </header>
-      <div className={styles.nav}>
+      <button
+        onClick={toggleSidebar}
+        aria-controls="sidebar"
+        aria-expanded={isSidebarOpen}
+        className={styles.showSidebarButton}
+      >
+        Show sidebar
+      </button>
+      <aside className={styles.sidebar} id="sidebar">
         {boards.length > 0 ? (
           <nav>
             <ul>
@@ -76,7 +83,8 @@ export default function Boards() {
         <Link className={styles.board} to="new">
           Create New Board
         </Link>
-      </div>
+        <button onClick={toggleSidebar}>Hide sidebar</button>
+      </aside>
       <main className={styles.main}>
         <Outlet />
       </main>
