@@ -58,7 +58,7 @@ importers:
       esbuild-register: 3.4.2
       eslint: 8.36.0
       express: 4.18.2
-      framer-motion: 10.3.4
+      framer-motion: 10.5.0
       http-server: 14.1.1
       isbot: 3.6.7
       morgan: 1.10.0
@@ -84,7 +84,7 @@ importers:
       cross-env: 7.0.3
       esbuild-register: 3.4.2_esbuild@0.17.12
       express: 4.18.2
-      framer-motion: 10.3.4_biqbaboplfbrettd7655fr4n2y
+      framer-motion: 10.5.0_biqbaboplfbrettd7655fr4n2y
       isbot: 3.6.7
       morgan: 1.10.0
       react: 18.2.0
@@ -7878,8 +7878,8 @@ packages:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}
     engines: {node: '>= 0.6'}
 
-  /framer-motion/10.3.4_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-JuvIMpEN0VxpgSiLPcY/edX3sQBdHzDQBnwFNf5hbr7Iwl0NTm7sMF9NUoKVR4geP/ICfBkZFVmjMLVPQZj+dA==}
+  /framer-motion/10.5.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-84Gh6Ct+KCk82YOnS7oq68IMlqcyaejrj2Xtxmh+CPOi7gqa1SZORZYWMJujQ2Qw0YRM2j1xQQdQo/+BtoQicQ==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
