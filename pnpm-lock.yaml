@@ -5,14 +5,14 @@ importers:
   .:
     specifiers:
       '@kanban/eslint-config-bases': workspace:*
-      chromatic: 6.17.1
+      chromatic: 6.17.2
       eslint: 8.36.0
       eslint-config-turbo: 0.0.9
       prettier: latest
       turbo: latest
     devDependencies:
       '@kanban/eslint-config-bases': link:packages/eslint-config-bases
-      chromatic: 6.17.1
+      chromatic: 6.17.2
       eslint: 8.36.0
       eslint-config-turbo: 0.0.9_eslint@8.36.0
       prettier: 2.8.7
@@ -6010,8 +6010,8 @@ packages:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==}
     engines: {node: '>=10'}
 
-  /chromatic/6.17.1:
-    resolution: {integrity: sha512-CKCIV+QiNsQUHaZu2uQkm9A140Fd9sPgf61IsbJCwPspb97tHxs6hbqzf1QjaJJL37G6UqR3u12bzPld7JB96w==}
+  /chromatic/6.17.2:
+    resolution: {integrity: sha512-rtrkywh1CuDDuuiRWXpdiX38aEGN3sGCATsgdh3X/EUBjQjgQtEbSzcMusC3cqz3K9dFKcWwKpFm3jaw9gNymA==}
     hasBin: true
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
