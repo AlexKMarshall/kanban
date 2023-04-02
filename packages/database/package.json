@@ -17,7 +17,7 @@
     "@kanban/clock": "workspace:*",
     "@kanban/id-generator": "workspace:*",
     "@prisma/client": "4.11.0",
-    "type-fest": "3.7.0"
+    "type-fest": "3.7.1"
   },
   "devDependencies": {
     "@kanban/tsconfig": "workspace:*",
