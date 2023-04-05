@@ -19,7 +19,7 @@
     "@kanban/eslint-config-bases": "workspace:*",
     "chromatic": "6.17.2",
     "eslint": "8.37.0",
-    "eslint-config-turbo": "1.8.6",
+    "eslint-config-turbo": "1.8.7",
     "prettier": "latest",
     "turbo": "latest"
   },
