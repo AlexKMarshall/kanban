@@ -46,7 +46,7 @@ importers:
       '@storybook/react': 7.0.2
       '@storybook/react-vite': 7.0.2
       '@storybook/react-webpack5': 7.0.2
-      '@storybook/testing-library': 0.0.14-next.2
+      '@storybook/testing-library': 0.1.0
       '@types/react': 18.0.32
       '@types/react-dom': 18.0.11
       '@vanilla-extract/css': 1.11.0
@@ -109,7 +109,7 @@ importers:
       '@storybook/react': 7.0.2_ygqkwb4gg3aean7xjfdauovyqq
       '@storybook/react-vite': 7.0.2_6uylmgnzlqpeawp7a5cr5koi6y
       '@storybook/react-webpack5': 7.0.2_dwbqyw7bmccexb6d5x2xoiug74
-      '@storybook/testing-library': 0.0.14-next.2
+      '@storybook/testing-library': 0.1.0
       '@types/react': 18.0.32
       '@types/react-dom': 18.0.11
       '@vanilla-extract/css': 1.11.0
@@ -4327,8 +4327,8 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/testing-library/0.0.14-next.2:
-    resolution: {integrity: sha512-i/SLSGm0o978ELok/SB4Qg1sZ3zr+KuuCkzyFqcCD0r/yf+bG35aQGkFqqxfSAdDxuQom0NO02FE+qys5Eapdg==}
+  /@storybook/testing-library/0.1.0:
+    resolution: {integrity: sha512-g947f4LJZw3IluBhysMKLJXByAFiSxnGuooENqU+ZPt/GTrz1I9GDBlhmoTJahuFkVbwHvziAl/8riY2Re921g==}
     dependencies:
       '@storybook/client-logger': 7.0.2
       '@storybook/instrumenter': 7.0.2
