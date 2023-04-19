@@ -7,14 +7,14 @@ importers:
       '@kanban/eslint-config-bases': workspace:*
       chromatic: 6.17.3
       eslint: 8.38.0
-      eslint-config-turbo: 1.9.0
+      eslint-config-turbo: 1.9.1
       prettier: latest
       turbo: latest
     devDependencies:
       '@kanban/eslint-config-bases': link:packages/eslint-config-bases
       chromatic: 6.17.3
       eslint: 8.38.0
-      eslint-config-turbo: 1.9.0_eslint@8.38.0
+      eslint-config-turbo: 1.9.1_eslint@8.38.0
       prettier: 2.8.7
       turbo: 1.9.3
 
@@ -7207,13 +7207,13 @@ packages:
       eslint: 8.38.0
     dev: false
 
-  /eslint-config-turbo/1.9.0_eslint@8.38.0:
-    resolution: {integrity: sha512-DEwFRVitVZPPEEEiEIu/oIqTHDQnKHenYZXB2YhFCTUnBtRPoYuLGPqeB0x8jQzPTVq5D2XFjiXdnFWLx9/71Q==}
+  /eslint-config-turbo/1.9.1_eslint@8.38.0:
+    resolution: {integrity: sha512-tUqm5TxI5bpbDEgClbw+UygVPAwYB20FIpAiQsZI8imJNDz30E40TZkp6uWpAKmxykU8T0+t3jwkYokvXmXc0Q==}
     peerDependencies:
       eslint: '>6.6.0'
     dependencies:
       eslint: 8.38.0
-      eslint-plugin-turbo: 1.9.0_eslint@8.38.0
+      eslint-plugin-turbo: 1.9.1_eslint@8.38.0
     dev: true
 
   /eslint-import-resolver-node/0.3.6:
@@ -7617,8 +7617,8 @@ packages:
       - supports-color
       - typescript
 
-  /eslint-plugin-turbo/1.9.0_eslint@8.38.0:
-    resolution: {integrity: sha512-ttv1o+mD1uWxY9l+zeVS3X1iXdmfMzHwWE0VZvxxqxYW0thgLHA5eO9wyC/tdb1V9JdkiV7NmMJKyz+ew+sXuA==}
+  /eslint-plugin-turbo/1.9.1_eslint@8.38.0:
+    resolution: {integrity: sha512-QPd0EG0xkoDkXJLwPQKULxHjkR27VmvJtILW4C9aIrqauLZ+Yc/V7R+A9yVwAi6nkMHxUlCSUsBxmiQP9TIlPw==}
     peerDependencies:
       eslint: '>6.6.0'
     dependencies:
