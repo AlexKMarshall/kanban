@@ -60,7 +60,7 @@ importers:
       express: 4.18.2
       framer-motion: 10.12.4
       http-server: 14.1.1
-      isbot: 3.6.8
+      isbot: 3.6.10
       morgan: 1.10.0
       nodemon: 2.0.22
       npm-run-all: 4.1.5
@@ -85,7 +85,7 @@ importers:
       esbuild-register: 3.4.2_esbuild@0.17.12
       express: 4.18.2
       framer-motion: 10.12.4_biqbaboplfbrettd7655fr4n2y
-      isbot: 3.6.8
+      isbot: 3.6.10
       morgan: 1.10.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -9175,8 +9175,8 @@ packages:
   /isarray/2.0.5:
     resolution: {integrity: sha512-xHjhDr3cNBK0BzdUJSPXZntQUx/mwMS5Rw4A7lPJ90XGAO6ISP/ePDNuo0vhqOZU+UD5JoodwCAAoZQd3FeAKw==}
 
-  /isbot/3.6.8:
-    resolution: {integrity: sha512-V8XUXN0/UYxfgrui4o38pmOve2eO/1KjluxR1G8Qnu5gqlUiNrvtX06t1W5n8vFtrtKfHj96iFYuPL39jXUe8g==}
+  /isbot/3.6.10:
+    resolution: {integrity: sha512-+I+2998oyP4oW9+OTQD8TS1r9P6wv10yejukj+Ksj3+UR5pUhsZN3f8W7ysq0p1qxpOVNbl5mCuv0bCaF8y5iQ==}
     engines: {node: '>=12'}
     dev: false
 
