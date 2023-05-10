@@ -5,14 +5,14 @@ importers:
   .:
     specifiers:
       '@kanban/eslint-config-bases': workspace:*
-      chromatic: 6.17.3
+      chromatic: 6.17.4
       eslint: 8.39.0
       eslint-config-turbo: 1.9.3
       prettier: latest
       turbo: latest
     devDependencies:
       '@kanban/eslint-config-bases': link:packages/eslint-config-bases
-      chromatic: 6.17.3
+      chromatic: 6.17.4
       eslint: 8.39.0
       eslint-config-turbo: 1.9.3_eslint@8.39.0
       prettier: 2.8.8
@@ -6379,13 +6379,13 @@ packages:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==}
     engines: {node: '>=10'}
 
-  /chromatic/6.17.3:
-    resolution: {integrity: sha512-x6WAHLBqub/BYiGXEOsgw9T3m459SmwOvIz0Ra7rCriE2A9AqDKRmVdAEhzVud24ut6ehd54FJpDtArnR5/TbA==}
+  /chromatic/6.17.4:
+    resolution: {integrity: sha512-vnlvsv2lkp8BVtTn1OumJzqkDk2qB3pcGxEDIfZtVboKtzIPjnIlGa+c1fVKQe8NvHDU8R39k8klqgKHIXUVJw==}
     hasBin: true
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
       '@types/webpack-env': 1.18.0
-      snyk-nodejs-lockfile-parser: 1.47.5
+      snyk-nodejs-lockfile-parser: 1.49.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -12214,8 +12214,8 @@ packages:
       - supports-color
     dev: true
 
-  /snyk-nodejs-lockfile-parser/1.47.5:
-    resolution: {integrity: sha512-BtcUzhKrOW9mpow0TLEgr6h2mbsuKZdJDNuOCpixRiLIMm8ciSG54dFT1vZysqBCCyZhFf90DMD2XsRthvVeSg==}
+  /snyk-nodejs-lockfile-parser/1.49.0:
+    resolution: {integrity: sha512-73iqwHB8YSWex/PTx+TRUwtNPyKn5wP4n/kxEPbX9EfN3uSIcw6mSKiLm8gSKl5gtf8hcP0R0f1tBFjjdzQvRQ==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
@@ -12229,6 +12229,8 @@ packages:
       lodash.flatmap: 4.5.0
       lodash.isempty: 4.4.0
       lodash.topairs: 4.3.0
+      micromatch: 4.0.5
+      p-map: 4.0.0
       semver: 7.3.8
       snyk-config: 5.1.0
       tslib: 1.14.1
