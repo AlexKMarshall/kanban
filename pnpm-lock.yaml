@@ -7,14 +7,14 @@ importers:
       '@kanban/eslint-config-bases': workspace:*
       chromatic: 6.17.4
       eslint: 8.40.0
-      eslint-config-turbo: 1.9.6
+      eslint-config-turbo: 1.9.7
       prettier: latest
       turbo: latest
     devDependencies:
       '@kanban/eslint-config-bases': link:packages/eslint-config-bases
       chromatic: 6.17.4
       eslint: 8.40.0
-      eslint-config-turbo: 1.9.6_eslint@8.40.0
+      eslint-config-turbo: 1.9.7_eslint@8.40.0
       prettier: 2.8.8
       turbo: 1.9.9
 
@@ -7100,13 +7100,13 @@ packages:
       eslint: 8.40.0
     dev: false
 
-  /eslint-config-turbo/1.9.6_eslint@8.40.0:
-    resolution: {integrity: sha512-ZIIfcUZ3kW8owIdC1ykebSGJOmVjUidOin1j7ZxpFDGSGcRc2/r5MBNQ7z347lsJs0rNXk/LpOiFHNbdtE+n6w==}
+  /eslint-config-turbo/1.9.7_eslint@8.40.0:
+    resolution: {integrity: sha512-dTIKlw/nPeI2qwAL/1T8CTlV4HGh44G2SdLWi0D1b7gJ2dvdAxfsY1z8vKqFa6cyAZn6m2AxuH+WKiy2OudJQA==}
     peerDependencies:
       eslint: '>6.6.0'
     dependencies:
       eslint: 8.40.0
-      eslint-plugin-turbo: 1.9.6_eslint@8.40.0
+      eslint-plugin-turbo: 1.9.7_eslint@8.40.0
     dev: true
 
   /eslint-import-resolver-node/0.3.6:
@@ -7524,8 +7524,8 @@ packages:
       - typescript
     dev: false
 
-  /eslint-plugin-turbo/1.9.6_eslint@8.40.0:
-    resolution: {integrity: sha512-xxa+gfTg3CG7wKJbkOIqdZw2eXhriORjw/55GDjJiUrNhU4vo1tA+9HDo/glTQygZ22Pj3nxYhxINFnQ/IU3lg==}
+  /eslint-plugin-turbo/1.9.7_eslint@8.40.0:
+    resolution: {integrity: sha512-SuHqbfsKyfvYvyNTSt1rxV8pmeIs6g3u9OPd2uIgbf3o/CzMcRHbMPXhGRWLlBjtjjhCtHmOk4bmc+DMycnojA==}
     peerDependencies:
       eslint: '>6.6.0'
     dependencies:
