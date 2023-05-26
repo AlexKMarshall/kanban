@@ -62,7 +62,7 @@
     "@vanilla-extract/vite-plugin": "3.8.1",
     "@vitejs/plugin-react": "3.1.0",
     "dotenv": "16.0.3",
-    "eslint": "8.40.0",
+    "eslint": "8.41.0",
     "http-server": "14.1.1",
     "nodemon": "2.0.22",
     "npm-run-all": "4.1.5",
