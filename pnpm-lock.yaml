@@ -50,7 +50,7 @@ importers:
       '@types/react': 18.2.6
       '@types/react-dom': 18.2.4
       '@vanilla-extract/css': 1.11.0
-      '@vanilla-extract/vite-plugin': 3.8.1
+      '@vanilla-extract/vite-plugin': 3.8.2
       '@vitejs/plugin-react': 3.1.0
       compression: 1.7.4
       cross-env: 7.0.3
@@ -113,7 +113,7 @@ importers:
       '@types/react': 18.2.6
       '@types/react-dom': 18.2.4
       '@vanilla-extract/css': 1.11.0
-      '@vanilla-extract/vite-plugin': 3.8.1_vite@4.3.8
+      '@vanilla-extract/vite-plugin': 3.8.2_vite@4.3.8
       '@vitejs/plugin-react': 3.1.0_vite@4.3.8
       dotenv: 16.0.3
       eslint: 8.41.0
@@ -5138,8 +5138,8 @@ packages:
   /@vanilla-extract/private/1.0.3:
     resolution: {integrity: sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==}
 
-  /@vanilla-extract/vite-plugin/3.8.1_vite@4.3.8:
-    resolution: {integrity: sha512-Ruw0we95/ugcgidBVOh/jy/LsspsRz4WFHPPnydOgyPOu7h3Vo3BqDA4K0fQ+WmKKfyY8rEasJdbyFYqz8XxnQ==}
+  /@vanilla-extract/vite-plugin/3.8.2_vite@4.3.8:
+    resolution: {integrity: sha512-i0vpuBUoh10Obl0hJr0dWQa6M3Udu/irm4tnsg1lUze8DXTbv3ctHmVu/wrRZHKw1EzzW/v+nLoJJRvisApspQ==}
     peerDependencies:
       vite: ^2.2.3 || ^3.0.0 || ^4.0.3
     dependencies:
