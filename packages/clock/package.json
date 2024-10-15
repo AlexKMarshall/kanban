@@ -8,6 +8,6 @@
   },
   "devDependencies": {
     "@kanban/tsconfig": "workspace:*",
-    "typescript": "4.9.5"
+    "typescript": "5.6.3"
   }
 }

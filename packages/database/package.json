@@ -23,6 +23,6 @@
     "@kanban/tsconfig": "workspace:*",
     "esbuild-register": "3.4.2",
     "prisma": "4.14.1",
-    "typescript": "4.9.5"
+    "typescript": "5.6.3"
   }
 }
