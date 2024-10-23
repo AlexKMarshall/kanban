@@ -42,7 +42,7 @@
     "@babel/preset-typescript": "7.21.5",
     "@kanban/eslint-config-bases": "workspace:*",
     "@kanban/tsconfig": "workspace:*",
-    "@playwright/test": "1.31.2",
+    "@playwright/test": "1.48.1",
     "@remix-run/dev": "1.15.0",
     "@remix-run/eslint-config": "1.15.0",
     "@remix-run/server-runtime": "1.15.0",
