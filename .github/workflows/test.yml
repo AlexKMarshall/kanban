@@ -15,20 +15,20 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3.7.0
         with:
           fetch-depth: 0
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v3.9.1
         with:
-          node-version: 18
+          node-version: 18.20.8
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v2.4.1
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 7
+          version: 7.33.7
           run_install: false
 
       - name: Get pnpm store directory
@@ -37,7 +37,7 @@ jobs:
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v3.5.0
         name: Setup pnpm cache
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
@@ -54,7 +54,7 @@ jobs:
           echo "PLAYWRIGHT_VERSION=$(pnpx playwright --version)"
 
       - name: Cache playwright binaries
-        uses: actions/cache@v3
+        uses: actions/cache@v3.5.0
         id: playwright-cache
         with:
           path: ~/.cache/ms-playwright
@@ -73,7 +73,7 @@ jobs:
         run: pnpm ci
 
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v3.1.6
 
       - name: Publish to Chromatic
         uses: chromaui/action@v1
